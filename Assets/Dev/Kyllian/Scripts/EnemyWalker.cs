@@ -13,7 +13,7 @@ public class EnemyWalker : MonoBehaviour
     private float _rotationSpeed = 5f;
 
     [Header("Scriptable Object")]
-    [SerializeField, Tooltip("Liste de Vector3 que l'ennemis va suivre dans l'ordre")]
+    [SerializeField, Tooltip("Liste de points clés que l'ennemis va suivre dans l'ordre")]
     private Vector3Collection _pathToFollow;
 
     #endregion

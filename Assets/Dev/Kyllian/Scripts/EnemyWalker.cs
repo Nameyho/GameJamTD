@@ -12,7 +12,7 @@ public class EnemyWalker : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 5f;
 
-    [Header("Path")]
+    [Header("Scriptable Object")]
     [SerializeField, Tooltip("Liste de Vector3 que l'ennemis va suivre dans l'ordre")]
     private Vector3Collection _pathToFollow;
 
@@ -25,6 +25,10 @@ public class EnemyWalker : MonoBehaviour
     {
         if(_transform == null) { _transform = transform; }
         if (_rigidbody == null) { _rigidbody = GetComponent<Rigidbody>(); }
+    }
+
+    private void Start()
+    {
         _pathSize = _pathToFollow.Count;
     }
 
@@ -70,7 +74,7 @@ public class EnemyWalker : MonoBehaviour
 
     private bool HasReachTarget(Vector3 target)
     {
-        return Vector3.Distance(_transform.position, target) == 0;
+        return Vector3.Distance(_transform.position, target) < 0.5f;
     }
 
     private bool CanMove()

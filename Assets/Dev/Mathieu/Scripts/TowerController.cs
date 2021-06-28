@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class TowerController : MonoBehaviour
 {
@@ -29,6 +30,12 @@ public class TowerController : MonoBehaviour
     }
 
     public _shootTypes _typeshoot;
+
+    [SerializeField]
+    private IntVariable _gold;
+
+    [SerializeField]
+    private int _goldCost;
 
     #endregion
 
@@ -100,6 +107,7 @@ public class TowerController : MonoBehaviour
 
     private void Awake() {
         EnemiesList = new List<Collider>();
+        _gold.Value -= _goldCost;
     }
 
     #endregion

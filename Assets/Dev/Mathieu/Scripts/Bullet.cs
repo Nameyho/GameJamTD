@@ -12,6 +12,11 @@ public class Bullet : MonoBehaviour
 
     private Bullet _bullet;
 
+    private float _damage;
+    public float damage{
+        get => _damage;
+        set => _damage = value;
+    }
 
 
 
@@ -46,9 +51,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(this.name);
         Destroy(gameObject);
     }
+
+
 
 
     #endregion

@@ -9,7 +9,7 @@ public class TowerController : MonoBehaviour
     private GameObject _towerPrefab;
 
     [SerializeField]
-    private GameObject _shotArea;
+    private GameObject _Nose;
     [SerializeField]
     private GameObject _bulletPrefab;
     [SerializeField]
@@ -59,7 +59,7 @@ public class TowerController : MonoBehaviour
     private void FireBullet(Collider Other)
     {
 
-        GameObject newbullet = Instantiate(_bulletPrefab, _shotArea.transform);
+        GameObject newbullet = Instantiate(_bulletPrefab, _Nose.transform);
         newbullet.gameObject.transform.LookAt(Other.transform);
         Bullet bullet = newbullet.GetComponent<Bullet>();
         bullet.Shoot(_bulletSpeed);

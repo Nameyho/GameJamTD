@@ -6,74 +6,99 @@ using ScriptableObjectArchitecture;
 public class TowerController : MonoBehaviour
 {
     #region  Exposed
-    [SerializeField]
-    private GameObject _towerPrefab;
 
+    [Header("Prefab")]
     [SerializeField]
-    private GameObject _shotArea;
+    private GameObject _towerModel;
+
     [SerializeField]
     private GameObject _bulletPrefab;
+
     [SerializeField]
-    private float _delayshoot;
+    private GameObject _shootZone;
+
+
+
+    [Header("tweaking")]
+    [SerializeField]
+    private float _delayShoot;
     private float _nextShotTime;
 
+   
     [SerializeField]
     private float _bulletSpeed;
 
+    
     [SerializeField]
-    private float _destroyBullet;
+    private float _bulletLifeSpan;
+
+    
+    [SerializeField]
+    private int _goldCost;
+    
+    public _shootTypes _typeShoot;
 
     [System.Serializable]
      public enum _shootTypes {
         balistique = 1,
-        instantanée = 2
-    }
+        instantanée = 2,
 
-    public _shootTypes _typeshoot;
+        LanceFlamme = 3
+    }
 
     [SerializeField]
     private IntVariable _gold;
 
     [SerializeField]
-    private int _goldCost;
+    private int _turretDamage;
+
+
+    [SerializeField]
+    private int _level;
+
+    [SerializeField]
+
+    private float _damageMultiplierByLevel;
 
     #endregion
 
-    #region private methods
 
-    public List<Collider> EnemiesList;
+    #region private
+
+    Collider toAttack =null;
+
+    #endregion
+    #region private 
+
+    private List<Collider> EnemiesList;
     #endregion 
 
     #region Unity API
-    private void OnTriggerStay(Collider other)
+            private void Update()
     {
-          
-        if (other.CompareTag("Mob"))
-        {
-               
-                int  highestscore =-1 ;
-                Collider toAttack =null;
+            int  highestscore =-1 ;
                 
+            if(!toAttack)
+            {
                 foreach (Collider e in EnemiesList)
                 {
-                    if(e.GetComponentInParent<EnemyHP>().distanceParcourue > highestscore){
+                        if(e.GetComponentInParent<EnemyHP>().distanceParcourue > highestscore)
+                        {
                         highestscore = e.GetComponentInParent<EnemyHP>().distanceParcourue;
                         toAttack = e;
-                    }
+                        }
                 }
-                if(toAttack!= null)
-                 _towerPrefab.transform.LookAt(toAttack.transform);
-                if ((Time.time >= _nextShotTime))
-                {
-               
-                if(toAttack!= null){
-                FireBullet(toAttack);
-                _nextShotTime = Time.time + _delayshoot;
-                }
-
             }
-           
-        }
+                
+                if(toAttack!= null)
+                {
+
+                     _towerModel.transform.LookAt(toAttack.transform);
+                        if ((Time.time >= _nextShotTime)){
+                         FireBullet(toAttack);
+                        _nextShotTime = Time.time + _delayShoot;
+                        }  
+                }
 
 
 
@@ -96,11 +121,10 @@ public class TowerController : MonoBehaviour
 
         if (other.CompareTag("Mob"))
         {
-            
-            
-            Debug.Log(EnemiesList.Count);
+            if(other == toAttack){   
+            toAttack = null;     
+            }
             EnemiesList.Remove(other);
-            
         }
     }
     
@@ -110,6 +134,16 @@ public class TowerController : MonoBehaviour
         _gold.Value -= _goldCost;
     }
 
+
+    private void OnDrawGizmos() {
+      
+      if(toAttack){
+        Gizmos.DrawLine(_shootZone.transform.position, toAttack.transform.position);
+      }
+             
+        
+       
+    }
     #endregion
 
 
@@ -119,15 +153,17 @@ public class TowerController : MonoBehaviour
     {
         
         
-        switch(_typeshoot)
+        switch(_typeShoot)
         {
             //tir balistique
             case _shootTypes.balistique : 
                
-                GameObject newbullet = Instantiate(_bulletPrefab, _shotArea.transform.position,_shotArea.transform.rotation);
+                GameObject newbullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
                 Bullet bullet = newbullet.GetComponent<Bullet>();
+                int realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
+                bullet.damage = realdamage;
                 bullet.Shoot(_bulletSpeed);
-                Destroy(newbullet, _destroyBullet);
+                Destroy(newbullet, _bulletLifeSpan);
                 break;
             //tir immédiat
             case _shootTypes.instantanée :
@@ -135,11 +171,27 @@ public class TowerController : MonoBehaviour
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
                 break;
 
+            case _shootTypes.LanceFlamme :
+
+                //if lance flamme actif
+
+                    // if(toattack null)
+                     // stop lance flamme
+
+                //if pas active je l'actif , lance flamme actif
+                break;
+
         }
 
         
     }
 
+    #endregion
+
+    #region public 
+    public void RemoveEnemy(Collider other){
+        EnemiesList.Remove(other);
+    }
     #endregion
 
 }

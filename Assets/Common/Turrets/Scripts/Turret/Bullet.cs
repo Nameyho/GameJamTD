@@ -1,22 +1,26 @@
 using UnityEngine;
 
+
 public class Bullet : MonoBehaviour
 {
 
     #region private
+    
     private Transform _transform;
     private Rigidbody _Rigidbody;
 
+    [Header("movement")]
     [SerializeField]
     private float _bulletSpeed;
 
     private Bullet _bullet;
 
-
-
-
+    private float _damage;
+    public float damage{
+        get => _damage;
+        set => _damage = value;
+    }
     #endregion
-
 
 
     #region  Unity APi
@@ -46,10 +50,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(this.name);
+        
+        //transmettre le dégat a l'ennemi
+        Debug.Log(_damage);
         Destroy(gameObject);
     }
-
 
     #endregion
 }

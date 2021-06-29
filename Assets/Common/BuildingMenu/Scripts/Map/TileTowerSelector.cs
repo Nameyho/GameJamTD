@@ -1,7 +1,8 @@
 
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
-public class CubeSelector : MonoBehaviour
+public class TileTowerSelector : MonoBehaviour
 {
     #region Private
 
@@ -17,7 +18,10 @@ public class CubeSelector : MonoBehaviour
     private Material _onExit;
 
     [SerializeField]
-    private SelectedTower _towerPrefab;
+    private SelectedTower _currentlySelecterTower;
+
+    [SerializeField]
+    private IntVariable _golds;
     #endregion
 
     #region Public Methods
@@ -26,7 +30,13 @@ public class CubeSelector : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        Instantiate(_towerPrefab._SelectedTower, this.transform);
+        if(_golds.Value >= _currentlySelecterTower._SelectedTower.GetComponent<TowerController>().goldCost){
+            Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
+        }else
+        {
+            Debug.Log("get rich");
+        }
+        
     }
 
     public void OnSelection(){

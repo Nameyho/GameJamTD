@@ -19,9 +19,11 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField]
 	private EnemyWalker _enemy;
 
-	[Header("Debug")]
+	[Header("Events")]
 	[SerializeField]
-	private GameObject _gizmo;
+	private GameEvent _nightHasFallen;
+	[SerializeField]
+	private GameEvent _dayHasDawned;
 
 	#endregion
 
@@ -32,11 +34,14 @@ public class EnemySpawner : MonoBehaviour
 	{
 		if (_transform == null) { _transform = transform; }
 		if (_sphereCollider == null) { _sphereCollider = GetComponent<SphereCollider>(); }
-		_gizmo.SetActive(false);
 
 		_spawnEnemy = SpawnRoutine();
+	}
 
-		StartCoroutine(_spawnEnemy);
+    private void Start()
+    {
+		_nightHasFallen.AddListener(StartSpawnRoutine);
+		_dayHasDawned.AddListener(StopSpawnRoutine);
 	}
 
     #endregion
@@ -69,6 +74,16 @@ public class EnemySpawner : MonoBehaviour
 				StopCoroutine(_spawnEnemy);
 			}
 		}
+	}
+
+	private void StopSpawnRoutine()
+    {
+		StopCoroutine(_spawnEnemy);
+    }
+
+	private void StartSpawnRoutine()
+	{
+		StartCoroutine(_spawnEnemy);
 	}
 
 	#endregion

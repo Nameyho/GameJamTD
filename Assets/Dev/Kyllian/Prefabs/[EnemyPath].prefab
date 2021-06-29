@@ -105,4 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1ddbcc547458b468861224943b58ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyPointsList: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}
+  _path: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}

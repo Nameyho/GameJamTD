@@ -20,7 +20,6 @@ public class EnemyAttacker : MonoBehaviour
 	
 	public void AttackPlayerAndDisappear()
     {
-		Debug.Log("<color=red>Attack </color>");
 		_playerLife.Value -= _damages;
 		Destroy(gameObject);
     }

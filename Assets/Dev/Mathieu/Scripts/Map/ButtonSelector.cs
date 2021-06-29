@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ButtonSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    #region Exposed
+
+    [SerializeField]
+    private GameObject _TowerPrefab;
+
+    [SerializeField]
+    private SelectedTower _SelectedTowerScriptableobject;
+    #endregion
+
+    #region Methods
+
+    public void OnClick(){
+        _SelectedTowerScriptableobject._SelectedTower = _TowerPrefab;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
 }

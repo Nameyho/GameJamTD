@@ -17,7 +17,7 @@ public class CubeSelector : MonoBehaviour
     private Material _onExit;
 
     [SerializeField]
-    private GameObject _towerPrefab;
+    private SelectedTower _towerPrefab;
     #endregion
 
     #region Public Methods
@@ -26,7 +26,7 @@ public class CubeSelector : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        Instantiate(_towerPrefab, this.transform);
+        Instantiate(_towerPrefab._SelectedTower, this.transform);
     }
 
     public void OnSelection(){

@@ -28,8 +28,11 @@ public class MapSelector : MonoBehaviour
                 cube.OnSelection();
                 
             }else{
-                Debug.Log(lastcubeSelected);
-                lastcubeSelected.OnUnSelection();
+                if(lastcubeSelected){
+                    Debug.Log(lastcubeSelected);
+                    lastcubeSelected.OnUnSelection();
+                }
+             
             }
 
         }

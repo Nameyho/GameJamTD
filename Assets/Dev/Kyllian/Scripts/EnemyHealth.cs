@@ -12,13 +12,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private float _healthMultiplier = 1f;
     [SerializeField]
-    private int _goldIncome = 10;
+    private int _goldDropAmount = 10;
 
     [Header("Scriptable Objects")]
     [SerializeField]
     private IntVariable _turn;
     [SerializeField]
-    private IntVariable _gold;
+    private IntVariable _playerGold;
 
     #endregion
 
@@ -71,7 +71,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void GiveGold()
     {
-        _gold.Value += _goldIncome;
+        _playerGold.Value += _goldDropAmount;
     }
 
     #endregion

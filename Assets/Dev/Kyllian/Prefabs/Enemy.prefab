@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4213944295346232674}
   - component: {fileID: 1520309827894509603}
   - component: {fileID: 1870393852736072877}
-  - component: {fileID: 5839444180787733465}
   - component: {fileID: 8704838302472581117}
+  - component: {fileID: 5839444180787733465}
+  - component: {fileID: -4155638639001874991}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -65,21 +66,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5839444180787733465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756564903543150626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4c54abdea01f24dae2bc4ed734c2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _rotationSpeed: 5
-  _pathToFollow: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}
 --- !u!114 &8704838302472581117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,9 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseHealth: 10
   _healthMultiplier: 1
-  _goldIncome: 10
+  _goldDropAmount: 10
   _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
-  _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
+  _playerGold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
   OnEnemyDead:
     m_PersistentCalls:
       m_Calls:
@@ -112,6 +98,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5839444180787733465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756564903543150626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4c54abdea01f24dae2bc4ed734c2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 4
+  _rotationSpeed: 5
+  _pathToFollow: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}
+  _hasReachedPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4155638639001874991}
+        m_TargetAssemblyTypeName: EnemyAttacker, Enemy.Runtime
+        m_MethodName: AttackPlayerAndDisappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4155638639001874991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756564903543150626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c692f1d9ad0edc64ab3ea6ea1f1b839e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damages: 1
+  _playerLife: {fileID: 11400000, guid: a5865be5029ac6449a627005ac938a40, type: 2}
 --- !u!1 &1734011958887395915
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,9 @@ public class EnemyPath : MonoBehaviour
 {
 	#region Exposed
 
+	[Header("Scriptable Objects")]
 	[SerializeField]
-	private Vector3Collection _keyPointsList;
+	private Vector3Collection _path;
 
 	#endregion
 
@@ -16,17 +17,19 @@ public class EnemyPath : MonoBehaviour
 	private void Awake()
     {
 		if (_transform == null) { _transform = GetComponent<Transform>(); }
-		_keyPointsList.Clear();
+		_path.Clear();
 		SetPath();
 	}
 
     private void OnDrawGizmosSelected()
     {
-        for (int i = 0; i < _keyPointsList.Count; i++)
+        for (int i = 0; i < _path.Count; i++)
         {
-			if (i+1 == _keyPointsList.Count) return;
+			if (i+1 == _path.Count) return;
+
+			var offset = new Vector3(0, 0.1f, 0);
 			Gizmos.color = Color.red;
-			Gizmos.DrawLine(_keyPointsList[i], _keyPointsList[i+1]);
+			Gizmos.DrawLine(_path[i] + offset, _path[i+1] + offset);
 		}
     }
 
@@ -40,7 +43,7 @@ public class EnemyPath : MonoBehaviour
         for (int i = 0; i < _transform.childCount; i++)
         {
 			var child = _transform.GetChild(i);
-			_keyPointsList.Add(child.transform.position);
+			_path.Add(child.transform.position);
 		}
     }
 

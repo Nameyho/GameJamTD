@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using ScriptableObjectArchitecture;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -18,6 +19,13 @@ public class EnemyWalker : MonoBehaviour
 
     public bool IsAlive { set => _isAlive = value; }
     public Vector3Collection PathToFollow { set => _pathToFollow = value; }
+
+    #endregion
+
+
+    #region Events
+
+    public UnityEvent _hasReachedPlayer;
 
     #endregion
 
@@ -48,7 +56,7 @@ public class EnemyWalker : MonoBehaviour
     #endregion
 
 
-    #region Utils
+    #region Main
 
     private void MoveToTarget(Vector3 target)
     {
@@ -58,6 +66,10 @@ public class EnemyWalker : MonoBehaviour
         if (CanMoveToLastIndex() && HasReachTarget(target))
         {
             _pathIndex++;
+        }
+        else if (HasReachTarget(target))
+        {
+            _hasReachedPlayer?.Invoke();
         }
     }
 
@@ -77,14 +89,19 @@ public class EnemyWalker : MonoBehaviour
         _rigidbody.MoveRotation(rotateTowards);
     }
 
+    #endregion
+
+
+    #region Utils
+
     private bool HasReachTarget(Vector3 target)
     {
-        return Vector3.Distance(_transform.position, target) < 0.5f;
+        return Vector3.Distance(_transform.position, target) < 1f;
     }
 
     private bool CanMoveToLastIndex()
     {
-        return _pathIndex+1 < _pathSize ? true : false;
+        return _pathIndex + 1 < _pathSize ? true : false;
     }
 
     #endregion

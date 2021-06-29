@@ -3,7 +3,12 @@ guid: 360eebf812ba05746a95c0c874cbc5d5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
+  - _nightSecondsRemaining: {fileID: 11400000, guid: 76d4e7e3e67c4cb47977c4c310870e30, type: 2}
+  - _daySecondsRemaining: {fileID: 11400000, guid: dd53b1f25f39bf84e94497d1c3c4748f, type: 2}
+  - _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
+  - _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

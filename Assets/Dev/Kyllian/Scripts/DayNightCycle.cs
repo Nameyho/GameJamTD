@@ -12,10 +12,15 @@ public class DayNightCycle : MonoBehaviour
 	[SerializeField]
 	private int _nightSeconds = 60;
 
+	[Header("Scriptable Objects")]
 	[SerializeField]
 	private IntVariable _turn;
+	[SerializeField]
+	private IntVariable _nightSecondsRemaining;
+	[SerializeField]
+	private IntVariable _daySecondsRemaining;
 
-	[Header("Event")]
+	[Header("Events")]
 	[SerializeField]
 	private GameEvent _nightHasFallen;
 	[SerializeField]
@@ -28,8 +33,8 @@ public class DayNightCycle : MonoBehaviour
 
 	private void Awake()
     {
-		_nightSecondsRemaining = _nightSeconds;
-		_daySecondsRemaining = _daySeconds;
+		_nightSecondsRemaining.Value = _nightSeconds;
+		_daySecondsRemaining.Value = _daySeconds;
 		_dayCycle = DayCycle();
 		_nightCycle = NightCycle();
 	}
@@ -42,8 +47,9 @@ public class DayNightCycle : MonoBehaviour
     private void OnGUI()
     {
 		GUILayout.Label($"TURN: {_turn.Value}");
-		GUILayout.Label($"Day seconds remaining: {_daySecondsRemaining}");
-		GUILayout.Label($"Night seconds remaining: {_nightSecondsRemaining}");
+		GUILayout.Label($"State: {_timeState}");
+		GUILayout.Label($"Day seconds remaining: {_daySecondsRemaining.Value}");
+		GUILayout.Label($"Night seconds remaining: {_nightSecondsRemaining.Value}");
 	}
 
 	#endregion
@@ -56,14 +62,15 @@ public class DayNightCycle : MonoBehaviour
 		while (true)
         {
 			yield return new WaitForSeconds(1);
-			_daySecondsRemaining -= 1;
+			_daySecondsRemaining.Value -= 1;
 
-			if(_daySecondsRemaining <= 0)
+			if(_daySecondsRemaining.Value <= 0)
             {
-				_daySecondsRemaining = _daySeconds;
+				_daySecondsRemaining.Value = _daySeconds;
 
 				StopCoroutine(_dayCycle);
 				StartCoroutine(_nightCycle);
+				_timeState = "NIGHT";
 				_nightHasFallen.Raise();
 			}
         }
@@ -74,15 +81,16 @@ public class DayNightCycle : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(1);
-			_nightSecondsRemaining -= 1;
+			_nightSecondsRemaining.Value -= 1;
 
-			if (_nightSecondsRemaining <= 0)
+			if (_nightSecondsRemaining.Value <= 0)
 			{
-				_nightSecondsRemaining = _nightSeconds;
+				_nightSecondsRemaining.Value = _nightSeconds;
 
 				StopCoroutine(_nightCycle);
 				StartCoroutine(_dayCycle);
 				_dayHasDawned.Raise();
+				_timeState = "DAY";
 				_turn.Value += 1;
 			}
 		}
@@ -93,10 +101,9 @@ public class DayNightCycle : MonoBehaviour
 
 	#region Private and Protected Members
 
-	private int _nightSecondsRemaining;
-	private int _daySecondsRemaining;
 	private IEnumerator _dayCycle;
 	private IEnumerator _nightCycle;
+	private string _timeState = "DAY";
 
 	#endregion
 }

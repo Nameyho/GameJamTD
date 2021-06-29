@@ -12,6 +12,9 @@ public class DayNightCycle : MonoBehaviour
 	[SerializeField]
 	private int _nightSeconds = 60;
 
+	[SerializeField]
+	private IntVariable _turn;
+
 	[Header("Event")]
 	[SerializeField]
 	private GameEvent _nightHasFallen;
@@ -38,6 +41,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void OnGUI()
     {
+		GUILayout.Label($"TURN: {_turn.Value}");
 		GUILayout.Label($"Day seconds remaining: {_daySecondsRemaining}");
 		GUILayout.Label($"Night seconds remaining: {_nightSecondsRemaining}");
 	}
@@ -79,6 +83,7 @@ public class DayNightCycle : MonoBehaviour
 				StopCoroutine(_nightCycle);
 				StartCoroutine(_dayCycle);
 				_dayHasDawned.Raise();
+				_turn.Value += 1;
 			}
 		}
 	}

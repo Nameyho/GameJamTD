@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _daySeconds: 10
   _nightSeconds: 10
+  _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
   _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}

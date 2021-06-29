@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1378085113}
   m_Layer: 0
-  m_Name: Keypoint_2 (1)
+  m_Name: Keypoint_3
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1303424275870289659, guid: f8ecb9050b3b3664aae8184df561b55a, type: 3}
       propertyPath: m_Name
-      value: '[EnemyPath]'
+      value: '[EnemyPath_1]'
       objectReference: {fileID: 0}
     - target: {fileID: 1303424276713778685, guid: f8ecb9050b3b3664aae8184df561b55a, type: 3}
       propertyPath: m_LocalPosition.x

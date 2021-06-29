@@ -91,19 +91,22 @@ public class TowerController : MonoBehaviour
                         }
                 }
             }
-                
-                if((toAttack!= null)&& !IsFlameOn)
+            else{
+                 
+            }
+                if((toAttack)&& !IsFlameOn)
                 {
 
-                     _towerModel.transform.LookAt(toAttack.transform);
+                      
                         if ((Time.time >= _nextShotTime)){
                          FireBullet(toAttack);
                         _nextShotTime = Time.time + _delayShoot;
                         }  
                 }else
                 {   
+                  
                         if(toAttack){
-                       _towerModel.transform.LookAt(toAttack.transform);
+                             
                          FireBullet(toAttack);
 
                         }
@@ -140,7 +143,7 @@ public class TowerController : MonoBehaviour
     }
     
 
-    private void Awake() {
+    private void Start() {
         EnemiesList = new List<Collider>();
         _gold.Value -= _goldCost;
     }
@@ -163,7 +166,8 @@ public class TowerController : MonoBehaviour
     private void FireBullet(Collider Other)
     {
         
-        
+         this.transform.LookAt(toAttack.transform);
+         
         switch(_typeShoot)
         {
             

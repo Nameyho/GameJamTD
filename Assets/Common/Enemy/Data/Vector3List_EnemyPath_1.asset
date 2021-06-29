@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription:
     _value: 
-  _list: []
+  _list:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}

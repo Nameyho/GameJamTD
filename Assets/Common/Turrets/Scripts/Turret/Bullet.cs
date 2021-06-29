@@ -20,6 +20,14 @@ public class Bullet : MonoBehaviour
         get => _damage;
         set => _damage = value;
     }
+
+    public enum  TypeBullet
+    {
+        classique = 0 ,
+        explosive = 1
+    }
+
+    public TypeBullet _bulletType;
     #endregion
 
 
@@ -50,10 +58,20 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        //transmettre le dégat a l'ennemi
-        Debug.Log(_damage);
-        Destroy(gameObject);
+        switch(_bulletType)
+    {
+        case TypeBullet.classique :
+             //transmettre le dégat a l'ennemi
+            Debug.Log(other.name);
+            Destroy(gameObject);
+            break;
+
+        case TypeBullet.explosive :
+
+
+                break;
+        }
+       
     }
 
     #endregion

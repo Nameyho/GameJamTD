@@ -83,16 +83,19 @@ public class TowerController : MonoBehaviour
     #region Unity API
             private void Update()
     {
-            int  highestscore =-1 ;
+            float  HighestDistance =-1 ;
                 
             if(!toAttack)
             {
+                
                 foreach (Collider e in EnemiesList)
                 {
-                        if(e.GetComponentInParent<EnemyHP>().distanceParcourue > highestscore)
+                        if(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance() > HighestDistance)
                         {
-                        highestscore = e.GetComponentInParent<EnemyHP>().distanceParcourue;
+                    Debug.Log(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance());
+                    HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
                         toAttack = e;
+                         this.transform.LookAt(toAttack.transform);
                         }
                 }
             }
@@ -102,16 +105,16 @@ public class TowerController : MonoBehaviour
                 if((toAttack)&& !IsFlameOn)
                 {
 
-                      
+                       this.transform.LookAt(toAttack.transform);
                         if ((Time.time >= _nextShotTime)){
                          FireBullet(toAttack);
                         _nextShotTime = Time.time + _delayShoot;
                         }  
                 }else
                 {   
-                  
+                 
                         if(toAttack){
-                             
+                               this.transform.LookAt(toAttack.transform);
                          FireBullet(toAttack);
 
                         }
@@ -127,7 +130,7 @@ public class TowerController : MonoBehaviour
     {
         if (other.CompareTag("Mob"))
         {
-            
+            Debug.Log("collission");
             EnemiesList.Add(other);
             Debug.Log(EnemiesList.Count);
             
@@ -171,7 +174,7 @@ public class TowerController : MonoBehaviour
     private void FireBullet(Collider Other)
     {
         
-         this.transform.LookAt(toAttack.transform);
+        
          
         switch(_typeShoot)
         {

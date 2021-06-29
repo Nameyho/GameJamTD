@@ -6,7 +6,7 @@ public class MapSelector : MonoBehaviour
 
     public Camera cam;
 
-    CubeSelector lastcubeSelected = null;
+    TileTowerSelector lastcubeSelected = null;
     #endregion
 
 
@@ -23,7 +23,7 @@ public class MapSelector : MonoBehaviour
             Debug.Log(objectHit.tag);
             if (objectHit.CompareTag("Building"))
             {
-                CubeSelector cube = objectHit.GetComponent<CubeSelector>();
+                TileTowerSelector cube = objectHit.GetComponent<TileTowerSelector>();
                 lastcubeSelected = cube;
                 cube.OnSelection();
                 

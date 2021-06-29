@@ -35,6 +35,11 @@ public class TowerController : MonoBehaviour
     
     [SerializeField]
     private int _goldCost;
+
+        public int goldCost{
+        get => _goldCost;
+        set => _goldCost = value;
+    }
     
     public _shootTypes _typeShoot;
 

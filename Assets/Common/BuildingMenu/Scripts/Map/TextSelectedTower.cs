@@ -11,22 +11,28 @@ public class TextSelectedTower : MonoBehaviour
 
     #region Members
 
-    private string _text;
+    private Text _text;
     #endregion
 
     #region Unity API
 
     void Update()
     {
+      
+      if(_text.text !=_selectedTowerScriptableobject._SelectedTower.name ){
+     _text.text =_selectedTowerScriptableobject._SelectedTower.name;
+      
 
-     _text = _selectedTowerScriptableobject._SelectedTower.name;
-        Debug.Log(_text);
+      
+
+      }
         
     }
 
-    private void Awake() {
-        _text = GetComponent<Text>().text;
-        Debug.Log(_text);
+
+private void Awake() {
+        _text = GetComponent<Text>();
+       
     }
    #endregion
 

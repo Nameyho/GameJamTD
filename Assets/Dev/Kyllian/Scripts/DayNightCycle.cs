@@ -26,6 +26,10 @@ public class DayNightCycle : MonoBehaviour
 	[SerializeField]
 	private GameEvent _dayHasDawned;
 
+	[Header("Debug")]
+	[SerializeField]
+	private bool _isDebug;
+
 	#endregion
 
 
@@ -46,6 +50,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void OnGUI()
     {
+		if (!_isDebug) return;
 		GUILayout.Label($"TURN: {_turn.Value}");
 		GUILayout.Label($"State: {_timeState}");
 		GUILayout.Label($"Day seconds remaining: {_daySecondsRemaining.Value}");

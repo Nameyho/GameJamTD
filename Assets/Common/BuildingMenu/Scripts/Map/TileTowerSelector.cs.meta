@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8e25128013a39c64a82fc43a35d7dce3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _onSelected: {fileID: 2100000, guid: 3bd5b3fb7a0e1c7409c41da1c02f1006, type: 2}
+  - _onExit: {fileID: 2100000, guid: 828159f66f859c2409b89f6540730ead, type: 2}
+  - _currentlySelecterTower: {fileID: 11400000, guid: 52ecbec83d8c56642b72aba6a0dd2f86, type: 2}
+  - _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -67,6 +67,8 @@ public class TowerController : MonoBehaviour
 
     Collider toAttack =null;
 
+    private bool IsFlameOn;
+
     #endregion
     #region private 
 
@@ -90,7 +92,7 @@ public class TowerController : MonoBehaviour
                 }
             }
                 
-                if(toAttack!= null)
+                if((toAttack!= null)&& !IsFlameOn)
                 {
 
                      _towerModel.transform.LookAt(toAttack.transform);
@@ -98,6 +100,15 @@ public class TowerController : MonoBehaviour
                          FireBullet(toAttack);
                         _nextShotTime = Time.time + _delayShoot;
                         }  
+                }else
+                {   
+                        if(toAttack){
+                       _towerModel.transform.LookAt(toAttack.transform);
+                         FireBullet(toAttack);
+
+                        }
+                      
+                         
                 }
 
 
@@ -155,7 +166,8 @@ public class TowerController : MonoBehaviour
         
         switch(_typeShoot)
         {
-            //tir balistique
+            
+           
             case _shootTypes.balistique : 
                
                 GameObject newbullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
@@ -165,7 +177,7 @@ public class TowerController : MonoBehaviour
                 bullet.Shoot(_bulletSpeed);
                 Destroy(newbullet, _bulletLifeSpan);
                 break;
-            //tir immédiat
+            
             case _shootTypes.instantanée :
 
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
@@ -173,10 +185,27 @@ public class TowerController : MonoBehaviour
 
             case _shootTypes.LanceFlamme :
 
-                //if lance flamme actif
+                
+                if(IsFlameOn ){
 
-                    // if(toattack null)
-                     // stop lance flamme
+                    if(!toAttack){
+                        // stop lance flamme
+                        IsFlameOn = false;
+                        return;
+                    }
+
+                    for (int i = 0; i < EnemiesList.Count; i++)
+                    {
+                        realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
+                        Debug.Log(EnemiesList[i].name + "reçoit des dégats");
+                        //fonction de kyllian
+                    }
+                }else{
+                    IsFlameOn = true;
+                   
+                }
+
+                   
 
                 //if pas active je l'actif , lance flamme actif
                 break;

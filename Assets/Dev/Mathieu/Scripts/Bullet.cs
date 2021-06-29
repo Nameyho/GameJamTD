@@ -50,6 +50,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         //transmettre le dégat a l'ennemi
         Debug.Log(_damage);
         Destroy(gameObject);

@@ -18,12 +18,12 @@ public class TextSelectedTower : MonoBehaviour
 
     void Update()
     {
-      if(_selectedTowerScriptableobject){
+      
       if(_text.text !=_selectedTowerScriptableobject._SelectedTower.name ){
      _text.text =_selectedTowerScriptableobject._SelectedTower.name;
       
 
-      }
+      
 
       }
         

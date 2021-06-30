@@ -1,41 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-	#region Exposed
-	
-	
-	
-	#endregion
+    #region Exposed
+
+    [SerializeField]
+    private float _speed = 20;
+
+    #endregion
 
 
-	#region Unity API
-	
+    #region Unity API
+
     private void Awake()
     {
-        
+        if (_transform == null) { _transform = transform; }
     }
 
     private void Update()
     {
-        
+        MoveController();
     }
-	
-	#endregion
-	
-	
-	#region Utils
-	
-	
-	
-	#endregion
-	
-	
-	#region Private and Protected Members
-	
-	
-	
-	#endregion
+
+    #endregion
+
+
+    #region Utils
+
+    private void MoveController()
+    {
+        var direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var velocity = direction * _speed * Time.deltaTime;
+
+        _transform.Translate(velocity);
+    }
+
+    #endregion
+
+
+    #region Private and Protected Members
+
+    private Transform _transform;
+
+    #endregion
 }

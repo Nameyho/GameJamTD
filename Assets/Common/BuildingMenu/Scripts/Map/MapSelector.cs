@@ -3,11 +3,21 @@ using UnityEngine;
 public class MapSelector : MonoBehaviour
 {
     #region private
+    private static MapSelector instance;
 
+    public static MapSelector Instance
+    {
+        get
+        {
+            if (!instance)
+                instance = FindObjectOfType<MapSelector>();
+            return instance;
+        }
+    }
     public Camera cam;
 
     [SerializeField]
-    GameObject _panel;
+    public GameObject _panel;
 
     TileTowerSelector lastcubeSelected = null;
 
@@ -42,7 +52,8 @@ public class MapSelector : MonoBehaviour
                 Debug.Log("sortie");
                 TileTowerSelector.IsmenuMustBeOpen = false;
                 
-                lastcubeSelected.OnUnSelection();
+                if(lastcubeSelected)
+                    lastcubeSelected.OnUnSelection();
                 
 
             }

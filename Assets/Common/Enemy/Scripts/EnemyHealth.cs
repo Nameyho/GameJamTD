@@ -37,6 +37,15 @@ public class EnemyHealth : MonoBehaviour
         InitHealth();
     }
 
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnEnemyDead?.Invoke();
+            Destroy(gameObject, 5f);
+        }
+    }
+
     #endregion
 
 
@@ -49,6 +58,7 @@ public class EnemyHealth : MonoBehaviour
         if (!CheckIsDead()) return;
         GiveGold();
         OnEnemyDead?.Invoke();
+        Destroy(gameObject, 5f);
     }
 
     public bool CheckIsDead()

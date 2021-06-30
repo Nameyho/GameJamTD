@@ -73,7 +73,7 @@ MonoBehaviour:
   _timeBetweenSpawn: 1
   _amountToSpawn: -1
   _path: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}
-  _enemy: {fileID: 5839444180787733465, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
+  _enemy: {fileID: 6089873397589751272, guid: a3aa7d7218147204e95dea7e1a868799, type: 3}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
   _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}
 --- !u!1001 &5254941045318159399

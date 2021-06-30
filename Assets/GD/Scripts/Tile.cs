@@ -18,6 +18,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] private GameObject constructionZone;
 
+
     //[SerializeField] private bool constructable = false;
 
     public enum TileType

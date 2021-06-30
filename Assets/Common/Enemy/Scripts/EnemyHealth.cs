@@ -49,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
         if (!CheckIsDead()) return;
         GiveGold();
         OnEnemyDead?.Invoke();
+        Destroy(gameObject, 5f);
     }
 
     public bool CheckIsDead()

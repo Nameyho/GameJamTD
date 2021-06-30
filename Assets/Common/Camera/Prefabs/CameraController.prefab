@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
+  _limitX: {x: -15, y: 15}
+  _limitZ: {x: -15, y: 15}
 --- !u!1 &7316925119670312680
 GameObject:
   m_ObjectHideFlags: 0

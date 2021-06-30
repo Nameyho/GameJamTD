@@ -713,7 +713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800978148476844790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5839437766700011617}
@@ -1382,3 +1382,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276f2d267e44a0f4b8e7fc6751652864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileRenderer: {fileID: 1800978148476844794}
+  grassMaterial: {fileID: 2100000, guid: d7eec34eecac3554f99a99862c1fa5a6, type: 2}
+  roadWEMaterial: {fileID: 2100000, guid: d3dc36e8996501740950ab382fadb034, type: 2}
+  roadNSMaterial: {fileID: 2100000, guid: dc9fe61d7c81065489c3b3999eb417fe, type: 2}
+  roadTurnSWMaterial: {fileID: 2100000, guid: b24d50c626dbe4e41a8e20505a46a8ce, type: 2}
+  roadTurnSEMaterial: {fileID: 2100000, guid: 515bd6be6e8eca24ca38264314e901da, type: 2}
+  roadTurnNWMaterial: {fileID: 2100000, guid: fa4a9261515a5b942ba4468fc257c66e, type: 2}
+  roadTurnNEMaterial: {fileID: 2100000, guid: d31c7add8d7859a48bc8059acc954f51, type: 2}
+  roadCrossMaterial: {fileID: 2100000, guid: 4ec59dc7049dac94da45c108ec34d464, type: 2}
+  constructionZone: {fileID: 726537546462273133}
+  tileType: 0

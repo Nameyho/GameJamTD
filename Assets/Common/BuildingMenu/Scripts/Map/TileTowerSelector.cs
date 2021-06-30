@@ -27,7 +27,7 @@ public class TileTowerSelector : MonoBehaviour
     private GameObject _tower;
 
     [SerializeField]
-    private GameObject _panel;
+    //private GameObject MapSelector.Instance._panel;
 
     public static  bool IsmenuMustBeOpen = true;
     #endregion
@@ -39,14 +39,15 @@ public class TileTowerSelector : MonoBehaviour
 
     private void OnMouseDown() {
         Debug.Log(IsmenuMustBeOpen);
+        
         if(IsmenuMustBeOpen){
             // Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
-            _panel.SetActive(true);
-            _panel.transform.position = Input.mousePosition;
+            MapSelector.Instance._panel.SetActive(true);
+            MapSelector.Instance._panel.transform.position = Input.mousePosition;
         }else
         {
             Debug.Log("panel close");
-            _panel.SetActive(false);
+            MapSelector.Instance._panel.SetActive(false);
             //Debug.Log("get rich");
         }
         

@@ -9,6 +9,7 @@ public class TileTowerSelector : MonoBehaviour
 
     Camera cam;
     private Renderer rend;
+    private TowerController towerBuilt = null;
     #endregion
 
     #region Exposed
@@ -38,22 +39,30 @@ public class TileTowerSelector : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        Debug.Log(IsmenuMustBeOpen);
+        //Debug.Log(IsmenuMustBeOpen);
         
         if(IsmenuMustBeOpen){
             // Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
-            MapSelector.Instance._panel.SetActive(true);
-            MapSelector.Instance._panel.transform.position = Input.mousePosition;
-        }else
+            MapSelector.Instance._constructionMenuCanvas.SetActive(true);
+            //MapSelector.Instance._constructionMenuCanvas.transform.position = Input.mousePosition;
+            MapSelector.Instance._constructionMenuCanvas.transform.position = transform.position + Vector3.up * 4.9f;
+        }
+        else
         {
             Debug.Log("panel close");
-            MapSelector.Instance._panel.SetActive(false);
+            MapSelector.Instance._constructionMenuCanvas.SetActive(false);
             //Debug.Log("get rich");
         }
         
     }
 
-    
+    public void BuildTower(GameObject towerPrefab)
+    {
+        if (towerPrefab && !towerBuilt)
+        {
+            towerBuilt = Instantiate(towerPrefab, transform).GetComponent<TowerController>();
+        }
+    }
 
     public void OnSelection(){
         

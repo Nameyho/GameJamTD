@@ -17,7 +17,7 @@ public class MapSelector : MonoBehaviour
     public Camera cam;
 
     [SerializeField]
-    public GameObject _panel;
+    public GameObject _constructionMenuCanvas;
 
     TileTowerSelector lastcubeSelected = null;
 
@@ -43,13 +43,13 @@ public class MapSelector : MonoBehaviour
                 lastcubeSelected = cube;
                 TileTowerSelector.IsmenuMustBeOpen = true;
                 cube.OnSelection();
-                Debug.Log("entrée");
+                //Debug.Log("entrée");
 
             }
 
        
            if(!objectHit.CompareTag("Building")) {
-                Debug.Log("sortie");
+                //Debug.Log("sortie");
                 TileTowerSelector.IsmenuMustBeOpen = false;
                 
                 if(lastcubeSelected)
@@ -78,7 +78,7 @@ public class MapSelector : MonoBehaviour
             Transform objectHit = hit.transform;
             if (!objectHit.CompareTag("Building"))
             {
-                _panel.SetActive(false);
+                _constructionMenuCanvas.SetActive(false);
             }
         }
     }

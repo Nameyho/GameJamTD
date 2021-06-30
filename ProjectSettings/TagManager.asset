@@ -9,6 +9,7 @@ TagManager:
   - Mob
   - Flame
   - Building
+  - blast
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Bullet
   - tower
   - Flame
-  - 
+  - Blast
   - 
   - 
   - 

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0157049accf59544fbe7717e3e9f6d12, type: 3}
   m_Name: CurrentlyTower
   m_EditorClassIdentifier: 
-  _SelectedTower: {fileID: 0}
+  _SelectedTower: {fileID: 5446624769166811573, guid: 6fdf5bf298ef537408f97ce1d0cdf489, type: 3}
+  _GhostTower: {fileID: 5446624769166811573, guid: 50ac13b44af9c394a8be4e843bdc6de4, type: 3}

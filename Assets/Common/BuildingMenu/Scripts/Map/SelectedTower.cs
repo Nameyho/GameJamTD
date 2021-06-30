@@ -7,4 +7,5 @@ public class SelectedTower : ScriptableObject
 {
 
     public GameObject _SelectedTower;
+    public GameObject _GhostTower;
 }

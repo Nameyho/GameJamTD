@@ -34,7 +34,7 @@ public class EnemyWalker : MonoBehaviour
 
     private void Awake()
     {
-        if(_transform == null) { _transform = transform; }
+        if (_transform == null) { _transform = transform; }
         if (_rigidbody == null) { _rigidbody = GetComponent<Rigidbody>(); }
     }
 
@@ -45,12 +45,12 @@ public class EnemyWalker : MonoBehaviour
 
     private void Update()
     {
-        MoveToTarget(_pathToFollow[_pathIndex]);
+        MoveToTarget();
     }
 
     private void FixedUpdate()
     {
-        TurnTowardTarget(_pathToFollow[_pathIndex]);
+        TurnTowardTarget();
     }
 
     #endregion
@@ -58,24 +58,27 @@ public class EnemyWalker : MonoBehaviour
 
     #region Main
 
-    private void MoveToTarget(Vector3 target)
+    private void MoveToTarget()
     {
         if (!_isAlive) return;
+        Vector3 target = _pathToFollow[_pathIndex];
+
         _transform.position = Vector3.MoveTowards(_transform.position, target, _moveSpeed * Time.deltaTime);
 
-        if (CanMoveToLastIndex() && HasReachTarget(target))
+        if (CanMoveToLastIndex() && HasReachTarget())
         {
             _pathIndex++;
         }
-        else if (HasReachTarget(target))
+        else if (HasReachTarget())
         {
             _hasReachedPlayer?.Invoke();
         }
     }
 
-    private void TurnTowardTarget(Vector3 target)
+    private void TurnTowardTarget()
     {
         if (!_isAlive) return;
+        Vector3 target = _pathToFollow[_pathIndex];
         var targetDirection = new Vector3(target.x, _transform.position.y, target.z) - _transform.position;
         var lookRotation = Quaternion.Euler(Vector3.zero);
 
@@ -94,9 +97,22 @@ public class EnemyWalker : MonoBehaviour
 
     #region Utils
 
-    private bool HasReachTarget(Vector3 target)
+    public float GetRemainingDistance()
     {
-        return Vector3.Distance(_transform.position, target) < 1f;
+        float totalLength = Vector3.Distance(_transform.position, _pathToFollow[_pathIndex]);
+
+        for (int i = _pathIndex; i < _pathToFollow.Count; i++)
+        {
+            if (i+1 == _pathToFollow.Count) continue;
+
+            totalLength += Vector3.Distance(_pathToFollow[i], _pathToFollow[i+1]);
+        }
+        return totalLength;
+    }
+
+    private bool HasReachTarget()
+    {
+        return Vector3.Distance(_transform.position, _pathToFollow[_pathIndex]) < 1f;
     }
 
     private bool CanMoveToLastIndex()
@@ -114,6 +130,6 @@ public class EnemyWalker : MonoBehaviour
     private int _pathIndex = 0;
     private int _pathSize;
     private bool _isAlive = true;
-	
-	#endregion
+
+    #endregion
 }

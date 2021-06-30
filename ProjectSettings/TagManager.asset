@@ -8,11 +8,12 @@ TagManager:
   - Tower
   - Mob
   - Flame
+  - Building
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - mob
+  - Mob
   - Water
   - UI
   - Bullet

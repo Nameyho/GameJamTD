@@ -6,7 +6,12 @@ public class MapSelector : MonoBehaviour
 
     public Camera cam;
 
+    [SerializeField]
+    GameObject _panel;
+
     TileTowerSelector lastcubeSelected = null;
+
+   
     #endregion
 
 
@@ -20,23 +25,51 @@ public class MapSelector : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Transform objectHit = hit.transform;
-            Debug.Log(objectHit.tag);
+          
             if (objectHit.CompareTag("Building"))
             {
+            
                 TileTowerSelector cube = objectHit.GetComponent<TileTowerSelector>();
                 lastcubeSelected = cube;
+                TileTowerSelector.IsmenuMustBeOpen = true;
                 cube.OnSelection();
-                
-            }else{
-                if(lastcubeSelected){
-                    Debug.Log(lastcubeSelected);
-                    lastcubeSelected.OnUnSelection();
-                }
-             
+                Debug.Log("entrée");
+
             }
+
+       
+           if(!objectHit.CompareTag("Building")) {
+                Debug.Log("sortie");
+                TileTowerSelector.IsmenuMustBeOpen = false;
+                
+                lastcubeSelected.OnUnSelection();
+                
+
+            }
+
+                
+
+             
+            
 
         }
 
-        #endregion
+     
+
     }
+
+       private void OnMouseDown() {
+              RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform objectHit = hit.transform;
+            if (!objectHit.CompareTag("Building"))
+            {
+                _panel.SetActive(false);
+            }
+        }
+    }
+        #endregion
 }

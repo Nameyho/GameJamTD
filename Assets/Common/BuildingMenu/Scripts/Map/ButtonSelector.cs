@@ -11,6 +11,9 @@ public class ButtonSelector : MonoBehaviour
     private GameObject _TowerPrefab;
 
     [SerializeField]
+    private GameObject _GhostTowerPrefab;
+
+    [SerializeField]
     private SelectedTower _SelectedTowerScriptableobject;
     #endregion
 
@@ -18,6 +21,7 @@ public class ButtonSelector : MonoBehaviour
 
     public void OnClick(){
         _SelectedTowerScriptableobject._SelectedTower = _TowerPrefab;
+        _SelectedTowerScriptableobject._GhostTower = _GhostTowerPrefab;
     }
 
     #endregion

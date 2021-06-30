@@ -3,11 +3,21 @@ using UnityEngine;
 public class MapSelector : MonoBehaviour
 {
     #region private
+    private static MapSelector instance;
 
+    public static MapSelector Instance
+    {
+        get
+        {
+            if (!instance)
+                instance = FindObjectOfType<MapSelector>();
+            return instance;
+        }
+    }
     public Camera cam;
 
     [SerializeField]
-    GameObject _panel;
+    public GameObject _constructionMenuCanvas;
 
     TileTowerSelector lastcubeSelected = null;
 
@@ -33,16 +43,17 @@ public class MapSelector : MonoBehaviour
                 lastcubeSelected = cube;
                 TileTowerSelector.IsmenuMustBeOpen = true;
                 cube.OnSelection();
-                Debug.Log("entrée");
+                //Debug.Log("entrée");
 
             }
 
        
            if(!objectHit.CompareTag("Building")) {
-                Debug.Log("sortie");
+                //Debug.Log("sortie");
                 TileTowerSelector.IsmenuMustBeOpen = false;
                 
-                lastcubeSelected.OnUnSelection();
+                if(lastcubeSelected)
+                    lastcubeSelected.OnUnSelection();
                 
 
             }
@@ -67,7 +78,7 @@ public class MapSelector : MonoBehaviour
             Transform objectHit = hit.transform;
             if (!objectHit.CompareTag("Building"))
             {
-                _panel.SetActive(false);
+                _constructionMenuCanvas.SetActive(false);
             }
         }
     }

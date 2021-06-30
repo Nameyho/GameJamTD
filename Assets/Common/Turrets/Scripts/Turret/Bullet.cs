@@ -13,10 +13,17 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float _bulletSpeed;
 
+    [Header("Tweaking")]
+
+    [SerializeField]
+    private float _radius;
+
+
+
     private Bullet _bullet;
 
-    private float _damage;
-    public float damage{
+    private int _damage;
+    public int damage{
         get => _damage;
         set => _damage = value;
     }
@@ -58,16 +65,27 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         switch(_bulletType)
     {
         case TypeBullet.classique :
-             //transmettre le dégat a l'ennemi
-            Debug.Log(other.name);
+         GetComponentInChildren<GameObject>().SetActive(true);
+                other.GetComponent<EnemyHealth>().ReceiveDamages(_damage);
+                Debug.Log(other.name);
             Destroy(gameObject);
             break;
 
         case TypeBullet.explosive :
 
+              
+                Collider[] hitColliders = Physics.OverlapSphere(this.transform.position,_radius);
+
+                foreach(var hitCollider in hitColliders){
+                  
+                    if(hitCollider.CompareTag("Mob")){
+                        hitCollider.GetComponent<EnemyHealth>().ReceiveDamages(_damage);
+                    }
+                }
 
                 break;
         }

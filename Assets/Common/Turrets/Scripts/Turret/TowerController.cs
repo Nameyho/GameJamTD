@@ -85,14 +85,14 @@ public class TowerController : MonoBehaviour
     {
             float  HighestDistance =-1 ;
                 
-            if(!toAttack)
+            if((!toAttack))
             {
                 
                 foreach (Collider e in EnemiesList)
                 {
                         if(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance() > HighestDistance)
                         {
-                    Debug.Log(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance());
+                 
                     HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
                         toAttack = e;
                          this.transform.LookAt(toAttack.transform);
@@ -130,9 +130,9 @@ public class TowerController : MonoBehaviour
     {
         if (other.CompareTag("Mob"))
         {
-            Debug.Log("collission");
+          
             EnemiesList.Add(other);
-            Debug.Log(EnemiesList.Count);
+            
             
         }
 
@@ -174,7 +174,7 @@ public class TowerController : MonoBehaviour
     private void FireBullet(Collider Other)
     {
         
-        
+         int realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
          
         switch(_typeShoot)
         {
@@ -184,7 +184,7 @@ public class TowerController : MonoBehaviour
                
                 GameObject newbullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
                 Bullet bullet = newbullet.GetComponent<Bullet>();
-                int realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
+               
                 bullet.damage = realdamage;
                 bullet.Shoot(_bulletSpeed);
                 Destroy(newbullet, _bulletLifeSpan);
@@ -192,6 +192,8 @@ public class TowerController : MonoBehaviour
             
             case _shootTypes.instantanée :
 
+
+                Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
                 break;
 
@@ -208,9 +210,9 @@ public class TowerController : MonoBehaviour
 
                     for (int i = 0; i < EnemiesList.Count; i++)
                     {
-                        realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
+                      
                         Debug.Log(EnemiesList[i].name + "reçoit des dégats");
-                        //fonction de kyllian
+                         Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                     }
                 }else{
                     IsFlameOn = true;

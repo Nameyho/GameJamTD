@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 	{
 		if (_transform == null) { _transform = transform; }
 		if (_sphereCollider == null) { _sphereCollider = GetComponent<SphereCollider>(); }
-
+		_baseSpawnAmount = _amountToSpawn;
 		_spawnEnemy = SpawnRoutine();
 	}
 
@@ -72,6 +72,7 @@ public class EnemySpawner : MonoBehaviour
 			if (_amountToSpawn == 0)
 			{
 				StopCoroutine(_spawnEnemy);
+				_amountToSpawn = _baseSpawnAmount;
 			}
 		}
 	}
@@ -94,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
 	private IEnumerator _spawnEnemy;
 	private Transform _transform;
 	private SphereCollider _sphereCollider;
+	private int _baseSpawnAmount;
 
 	#endregion
 }

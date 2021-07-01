@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private IntVariable _playerGold;
 
+    public bool IsAlive { get => _baseHealth > 0; }
+
     #endregion
 
 
@@ -37,6 +39,14 @@ public class EnemyHealth : MonoBehaviour
         InitHealth();
     }
 
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ReceiveDamages(1000);
+        }
+    }
+
     #endregion
 
 
@@ -44,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void ReceiveDamages(int damages)
     {
+        if (!IsAlive) return;
         _health -= damages;
 
         if (!CheckIsDead()) return;

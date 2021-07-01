@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5839444180787733465, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
+      propertyPath: _moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
+      propertyPath: _baseHealth
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.size
       value: 3

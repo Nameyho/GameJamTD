@@ -519,7 +519,7 @@ MonoBehaviour:
   _goldCost: 500
   _typeShoot: 3
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
-  _turretDamage: 1
+  _turretDamage: 2
   _level: 1
   _damageMultiplierByLevel: 1
 --- !u!54 &5446624769166811576

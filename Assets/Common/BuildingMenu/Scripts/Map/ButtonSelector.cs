@@ -26,7 +26,7 @@ public class ButtonSelector : MonoBehaviour
 
     public void OnClick()
     {
-        if (_golds.Value > _TowerPrefab.GetComponent<TowerController>().goldCost)
+        if (_golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost)
         {
             Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentTileTransform);
         }
@@ -34,7 +34,7 @@ public class ButtonSelector : MonoBehaviour
 
     private void Update()
     {
-        button.interactable = _golds.Value > _TowerPrefab.GetComponent<TowerController>().goldCost;
+        button.interactable = _golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost;
 
     }
     #endregion

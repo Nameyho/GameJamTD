@@ -64,7 +64,7 @@ public class MapSelector : MonoBehaviour
         if (Physics.Raycast(ray, out hit,Mathf.Infinity,_layerMask.value))
         {
             Transform objectHit = hit.transform;
-            Debug.Log(objectHit.tag);
+            //Debug.Log(objectHit.tag);
             if (objectHit.CompareTag("Building"))
             {
                 

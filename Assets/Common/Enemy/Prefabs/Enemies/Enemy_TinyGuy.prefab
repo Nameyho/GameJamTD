@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1520309827894509603, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_Height
-      value: 1.6
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 1520309827894509603, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_Radius
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1520309827894509603, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_Center.y
-      value: 0.8
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4213944295346232674, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_RootOrder

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
@@ -27,29 +28,40 @@ public class DayNightCycleDisplayer : MonoBehaviour
 	private void Start()
 	{
 		if (_transform == null) { _transform = GetComponent<RectTransform>(); }
-		if (_animator == null) { _animator = GetComponent<Animator>(); }
-		_nightHasFallen.AddListener(PlayNight);
-		_dayHasDawned.AddListener(PlayDay);
-		_animator.SetFloat("DayMultiplier", 1f / _daySecondsRemaining);
-		_animator.SetFloat("NightMultiplier", 1f / _nightSecondsRemaining);
-		PlayDay();
+		_nightHasFallen.AddListener(NightToDay);
+		_dayHasDawned.AddListener(DayToNight);
+		DayToNight();
 	}
 
-    #endregion
+	#endregion
 
 
-    #region Utils
+	#region Utils
 
-	private void PlayDay()
+	private void DayToNight()
     {
-		Debug.Log("Play day");
-		_animator.SetTrigger("IsDay");
-    }
+		_transform.rotation = Quaternion.Euler(0, 0, 0);
+		StartCoroutine(LerpFunction(Quaternion.Euler(0, 0, -180), _daySecondsRemaining.Value));
+	}
 
-	private void PlayNight()
+	private void NightToDay()
 	{
-		Debug.Log("Play night");
-		_animator.SetTrigger("IsNight");
+		StartCoroutine(LerpFunction(Quaternion.Euler(0, 0, -360), _nightSecondsRemaining.Value));
+	}
+
+	IEnumerator LerpFunction(Quaternion endValue, float duration)
+	{
+		float time = 0;
+		Quaternion startValue = _transform.rotation;
+
+		while (time < duration)
+		{
+			_transform.rotation = Quaternion.Lerp(startValue, endValue, time / duration);
+			time += Time.deltaTime;
+			yield return null;
+		}
+
+		_transform.rotation = endValue;
 	}
 
 	#endregion
@@ -58,7 +70,6 @@ public class DayNightCycleDisplayer : MonoBehaviour
 	#region Private and Protected Members
 
 	private RectTransform _transform;
-	private Animator _animator;
 
 	#endregion
 }

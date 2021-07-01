@@ -514,6 +514,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 8136648396933870819}
   _toTurn: {fileID: 4427061807239669930}
+  _visualEffect: {fileID: 0}
   _delayShoot: 0
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -553,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9946061a66c514b89679761499412f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9946061a66c514b89679761499412f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -603,6 +604,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -283082274213973450, guid: 6a9946061a66c514b89679761499412f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -283082274213973450, guid: 6a9946061a66c514b89679761499412f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a9946061a66c514b89679761499412f, type: 3}
       propertyPath: m_Name
       value: m_towerFlameThrower_01
@@ -614,6 +623,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6a9946061a66c514b89679761499412f, type: 3}
       propertyPath: m_TagString
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654711678949032894, guid: 6a9946061a66c514b89679761499412f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654711678949032894, guid: 6a9946061a66c514b89679761499412f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4428086870554960927, guid: 6a9946061a66c514b89679761499412f, type: 3}
       propertyPath: m_Layer

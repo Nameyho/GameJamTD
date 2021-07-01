@@ -19,8 +19,7 @@ public class TileTowerSelector : MonoBehaviour
     [SerializeField]
     private Material _onExit;
 
-    [SerializeField]
-    private SelectedTower _currentlySelecterTower;
+
 
     [SerializeField]
     private IntVariable _golds;
@@ -40,20 +39,24 @@ public class TileTowerSelector : MonoBehaviour
 
     private void OnMouseDown() {
         //Debug.Log(IsmenuMustBeOpen);
-        
-        if(IsmenuMustBeOpen){
+
+        if ((IsmenuMustBeOpen) && (this.CompareTag("Building")))
+        {
+            Debug.Log("Click building");
             // Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
             MapSelector.Instance._constructionMenuCanvas.SetActive(true);
             //MapSelector.Instance._constructionMenuCanvas.transform.position = Input.mousePosition;
             MapSelector.Instance._constructionMenuCanvas.transform.position = transform.position + Vector3.up * 4.9f;
+            
         }
-        else
+        else if (!this.CompareTag("overlay"))
         {
             Debug.Log("panel close");
+            IsmenuMustBeOpen = true;
             MapSelector.Instance._constructionMenuCanvas.SetActive(false);
             //Debug.Log("get rich");
         }
-        
+
     }
 
     public void BuildTower(GameObject towerPrefab)

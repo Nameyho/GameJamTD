@@ -16,4 +16,8 @@ public class Boat : MonoBehaviour
         boatAnimator.SetTrigger("Leave");
     }
 
+    public bool IsInTransition()
+    {
+        return boatAnimator.IsInTransition(0);
+    }
 }

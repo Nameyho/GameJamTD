@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &22929720
 BoxCollider:
@@ -218,6 +218,135 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 1}
+--- !u!1001 &351364321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1739641520576558047, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175117, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5080362011564175117, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_Name
+      value: Spawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175117, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.703632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7105646
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.562
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _chanceMan
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _chanceGiant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _amountToSpawn
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _chanceTinyGuy
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _turnActivation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _enemyPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _bonusProbabilitiesByTurn.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _bonusProbabilitiesByTurn.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _bonusProbabilitiesByTurn.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
 --- !u!1 &859364312
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,11 +497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481251505485253001, guid: 00509c46650809d4bab5572cee72c77a, type: 3}
       propertyPath: _daySeconds
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1481251505485253001, guid: 00509c46650809d4bab5572cee72c77a, type: 3}
       propertyPath: _nightSeconds
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8867798572351092243, guid: 00509c46650809d4bab5572cee72c77a, type: 3}
       propertyPath: m_Name
@@ -385,7 +514,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1303424275870289658, guid: f8ecb9050b3b3664aae8184df561b55a, type: 3}
   m_PrefabInstance: {fileID: 1303424276489988343}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1656129746
+--- !u!1001 &1649139594
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -402,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5080362011564175117, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_Name
-      value: Spawner (1)
+      value: Spawner (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175117, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_IsActive
@@ -410,11 +539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.73
+      value: -16.76
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -422,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.56
+      value: 20.08
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -453,20 +582,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
-      propertyPath: _enemy
-      value: 
-      objectReference: {fileID: 5528232703135649734, guid: 5b87145bf82e68a49b1c5b784c9a6a32, type: 3}
-    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _chanceMan
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
-      propertyPath: _chanceGiant
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
-      propertyPath: _chanceWoman
-      value: 10
+      propertyPath: _chanceGiant
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _amountToSpawn
@@ -474,27 +595,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _chanceTinyGuy
-      value: 5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _turnActivation
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _enemyPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[0]
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[1]
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[2]
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[3]
-      value: 80
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _bonusProbabilitiesByTurn.Array.data[2]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
@@ -842,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.88
+      value: -15.8
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -850,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.24
+      value: 3.96
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175122, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -898,22 +1035,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _enemyPrefabs.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _enemyPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 5528232703135649734, guid: 5b87145bf82e68a49b1c5b784c9a6a32, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[0]
-      value: 25
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[1]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _spawnProbabilities.Array.data[2]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
       propertyPath: _spawnProbabilities.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080362011564175123, guid: e2aff2f6ba0a98d44b4f6ef4b74bd78a, type: 3}
+      propertyPath: _bonusProbabilitiesByTurn.Array.data[2]
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

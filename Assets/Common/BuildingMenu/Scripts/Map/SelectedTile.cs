@@ -6,5 +6,5 @@ using UnityEngine;
 public class SelectedTile : ScriptableObject
 {
 
-    public Transform _CurrentTileTransform;
+    public TileTowerSelector _CurrentSelectedTile;
 }

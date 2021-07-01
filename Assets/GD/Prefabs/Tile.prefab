@@ -683,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e25128013a39c64a82fc43a35d7dce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBuilt: {fileID: 0}
   _onSelected: {fileID: 2100000, guid: 2ff951a9862864b47be42f5627275121, type: 2}
   _onExit: {fileID: 2100000, guid: 4f39392603407ec4b8050d3bf3c12b67, type: 2}
   _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
@@ -712,7 +713,6 @@ GameObject:
   - component: {fileID: 1800978148476844794}
   - component: {fileID: 1800978148476844789}
   - component: {fileID: 7127716523612379041}
-  - component: {fileID: 3778671035860731701}
   - component: {fileID: 5265099690512673310}
   m_Layer: 0
   m_Name: Tile
@@ -1395,21 +1395,6 @@ MonoBehaviour:
   roadCrossMaterial: {fileID: 2100000, guid: 4ec59dc7049dac94da45c108ec34d464, type: 2}
   constructionZone: {fileID: 726537546462273133}
   tileType: 7
---- !u!114 &3778671035860731701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800978148476844790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e25128013a39c64a82fc43a35d7dce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onSelected: {fileID: 2100000, guid: 3bd5b3fb7a0e1c7409c41da1c02f1006, type: 2}
-  _onExit: {fileID: 2100000, guid: 828159f66f859c2409b89f6540730ead, type: 2}
-  _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
 --- !u!65 &5265099690512673310
 BoxCollider:
   m_ObjectHideFlags: 0

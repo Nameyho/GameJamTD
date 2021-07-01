@@ -9,7 +9,7 @@ public class TileTowerSelector : MonoBehaviour
 
     Camera cam;
     private Renderer rend;
-    private TowerController towerBuilt = null;
+    public TowerController towerBuilt = null;
     #endregion
 
     #region Exposed
@@ -23,8 +23,6 @@ public class TileTowerSelector : MonoBehaviour
     [SerializeField]
     private IntVariable _golds;
 
-    private GameObject _tower;
-
     [SerializeField]
     //private GameObject MapSelector.Instance._panel;
 
@@ -36,33 +34,35 @@ public class TileTowerSelector : MonoBehaviour
         this.rend = GetComponent<Renderer>();
     }
 
-    private void OnMouseDown() {
-        if(IsmenuMustBeOpen){
-            // Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
-            MapSelector.Instance._constructionMenuCanvas.SetActive(true);
-            //MapSelector.Instance._constructionMenuCanvas.transform.position = Input.mousePosition;
-            MapSelector.Instance._constructionMenuCanvas.transform.position = transform.position + Vector3.up * 4.9f;
-        }
-        else
-        {
-            Debug.Log("panel close");
-            MapSelector.Instance._constructionMenuCanvas.SetActive(false);
-            //Debug.Log("get rich");
-        }
+    //private void OnMouseDown() {
+    //    if(IsmenuMustBeOpen){
+    //        // Instantiate(_currentlySelecterTower._SelectedTower, this.transform);
+    //        MapSelector.Instance._constructionMenuPanel.SetActive(true);
+    //        //MapSelector.Instance._constructionMenuCanvas.transform.position = Input.mousePosition;
+    //        MapSelector.Instance._constructionMenuPanel.transform.position = transform.position + Vector3.up * 4.9f;
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("panel close");
+    //        MapSelector.Instance._constructionMenuPanel.SetActive(false);
+    //        //Debug.Log("get rich");
+    //    }
         
-    }
+    //}
 
     public void BuildTower(GameObject towerPrefab)
     {
         if (towerPrefab && !towerBuilt)
         {
             towerBuilt = Instantiate(towerPrefab, transform).GetComponent<TowerController>();
+            OnUnSelection();
+            MapSelector.Instance.CloseMenu();
         }
     }
 
     public void OnSelection(){
-        
-        rend.material = _onSelected;
+        if(!towerBuilt)
+            rend.material = _onSelected;
         
     }
 

@@ -80,6 +80,7 @@ MonoBehaviour:
   - {fileID: 4851545087289632603, guid: 7e4a8319915a996449a7030fa18ca39c, type: 3}
   - {fileID: 5528232703135649734, guid: 5b87145bf82e68a49b1c5b784c9a6a32, type: 3}
   _spawnProbabilities: 00000000320000003200000000000000
+  _bonusProbabilitiesByTurn: 01000000010000000100000001000000
   _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
   _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}

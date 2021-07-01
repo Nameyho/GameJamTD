@@ -22,6 +22,8 @@ public class EnemySpawner : MonoBehaviour
 	private EnemyWalker[] _enemyPrefabs;
 	[SerializeField, Tooltip("Ordre basé sur la liste des prefabs Enemy")]
 	private int[] _spawnProbabilities = new int[] {};
+	[SerializeField]
+	private int[] _bonusProbabilitiesByTurn = new int[] { };
 
 	[Header("Scriptable Objects")]
 	[SerializeField]
@@ -49,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
 		_nightHasFallen.AddListener(StartSpawnRoutine);
+		_nightHasFallen.AddListener(UpdateProbabilityOnNightPassed);
 		_dayHasDawned.AddListener(StopSpawnRoutine);
 	}
 
@@ -132,7 +135,11 @@ public class EnemySpawner : MonoBehaviour
 
 	private void UpdateProbabilityOnNightPassed()
     {
-
+        for (int i = 0; i < _spawnProbabilities.Length; i++)
+        {
+			if (_spawnProbabilities.Length <= i) continue;
+			_spawnProbabilities[i] += _bonusProbabilitiesByTurn[i];
+		}
     }
 
     #endregion

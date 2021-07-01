@@ -213,8 +213,8 @@ public class TowerController : MonoBehaviour
                 GameObject newBullet = Instantiate(_bulletPrefab, _shootZone.transform.position, _shootZone.transform.rotation);
                 var velocity = BallisticVelocity(point, angle);
                 Debug.Log("Firing at " + point + " velocity " + velocity);
+                
                 Bullet bullet = newBullet.GetComponent<Bullet>();
-                newBullet.transform.position = transform.position;
                 // newBullet = velocity;
 
 

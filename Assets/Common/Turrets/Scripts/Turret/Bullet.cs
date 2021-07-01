@@ -77,7 +77,6 @@ public class Bullet : MonoBehaviour
             case TypeBullet.classique:
                 GetComponentInChildren<GameObject>().SetActive(true);
                 other.GetComponent<EnemyHealth>().ReceiveDamages(_damage);
-                Debug.Log(other.name);
                 Destroy(gameObject);
                 break;
 

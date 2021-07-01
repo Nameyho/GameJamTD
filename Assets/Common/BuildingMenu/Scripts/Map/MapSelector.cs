@@ -20,12 +20,12 @@ public class MapSelector : MonoBehaviour
     public Camera cam;
 
     [SerializeField]
-    public GameObject _constructionMenuCanvas;
+    public GameObject _constructionMenuPanel;
 
     TileTowerSelector lastcubeSelected = null;
 
     public LayerMask _layerMask;
-   
+
     #endregion
 
 
@@ -35,71 +35,100 @@ public class MapSelector : MonoBehaviour
     {
 
         OnHover();
-
-    }
-
-       private void OnMouseDown() {
-              RaycastHit hit;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
+        if(Input.GetMouseButtonDown(0))
         {
-            Transform objectHit = hit.transform;
-            if (!objectHit.CompareTag("Building"))
-            {
-                _constructionMenuCanvas.SetActive(false);
-            }
-
+            LeftClick();
         }
     }
 
-    private void OnHover(){
+    private void LeftClick()
+    {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        
-       
 
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask.value))
+        {
+            Transform objectHit = hit.transform;
+            if(lastcubeSelected)
+            {
+                _constructionMenuPanel.SetActive(true);
+                _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 4.9f;
+            }
+            //if (!objectHit.CompareTag("Building"))
+            //{
+            //    _constructionMenuCanvas.SetActive(false);
+            //}
+        }
+        else
+        {
+            _constructionMenuPanel.SetActive(false);
+        }
+    }
 
+    public void CloseMenu()
+    {
+        _constructionMenuPanel.SetActive(false);
+        lastcubeSelected = null;
+    }
 
-        if (Physics.Raycast(ray, out hit,Mathf.Infinity,_layerMask.value))
+    private void UnselectTile()
+    {
+        if (lastcubeSelected)
+        {
+            lastcubeSelected.OnUnSelection();
+            lastcubeSelected = null;
+        }
+    }
+
+    private void OnHover()
+    {
+        RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask.value))
         {
             Transform objectHit = hit.transform;
             //Debug.Log(objectHit.tag);
-            if (objectHit.CompareTag("Building"))
+            //if (objectHit.CompareTag("Building"))
+            //{
+
+            TileTowerSelector cube = objectHit.GetComponent<TileTowerSelector>();
+            if(cube)
             {
-                
-                TileTowerSelector cube = objectHit.GetComponent<TileTowerSelector>();
+                if (lastcubeSelected)
+                {
+                    lastcubeSelected.OnUnSelection();
+                }
                 lastcubeSelected = cube;
                 TileTowerSelector.IsmenuMustBeOpen = true;
-                
-                _selectTileScriptable._CurrentTileTransform = objectHit.transform;
+
+                _selectTileScriptable._CurrentSelectedTile = cube;
                 cube.OnSelection();
-                
-                //Debug.Log("entrée");
-
             }
 
-       
-           if(!objectHit.CompareTag("Building")) {
-                //Debug.Log("sortie");
-                //TileTowerSelector.IsmenuMustBeOpen = false;
-                
-                if(lastcubeSelected)
-                    lastcubeSelected.OnUnSelection();
-                
+            //Debug.Log("entrée");
 
-            }
+            //}
 
-                
 
-             
-            
+            //if (!objectHit.CompareTag("Building"))
+            //{
+            //    //Debug.Log("sortie");
+            //    //TileTowerSelector.IsmenuMustBeOpen = false;
 
-        }else{
-           
+            //    if (lastcubeSelected)
+            //    {
+            //        lastcubeSelected.OnUnSelection();
+            //        lastcubeSelected = null;
+            //    }
 
+
+            //}
         }
-
+        else
+        {
+            UnselectTile();
+        }
     }
-        #endregion
+    #endregion
 }

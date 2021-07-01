@@ -28,7 +28,7 @@ public class ButtonSelector : MonoBehaviour
     {
         if (_golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost)
         {
-            Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentTileTransform);
+            _selectedTitleScriptableObjet._CurrentSelectedTile.BuildTower(_TowerPrefab);// Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentSelectedTile);
         }
     }
 

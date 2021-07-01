@@ -17,6 +17,9 @@ public class TowerController : MonoBehaviour
     [SerializeField]
     private GameObject _shootZone;
 
+    [SerializeField]
+    private Transform _toTurn;
+
 
 
     [Header("tweaking")]
@@ -114,7 +117,8 @@ public class TowerController : MonoBehaviour
 
                     HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
                     toAttack = e;
-                    this.transform.LookAt(toAttack.transform);
+                    if (_toTurn)
+                        _toTurn.LookAt(toAttack.transform);
                 }
             }
         }
@@ -124,8 +128,8 @@ public class TowerController : MonoBehaviour
         }
         if ((toAttack) && !IsFlameOn)
         {
-
-            this.transform.LookAt(toAttack.transform);
+            if (_toTurn)
+                _toTurn.LookAt(toAttack.transform);
             if ((Time.time >= _nextShotTime))
             {
                 FireBullet(toAttack);
@@ -137,7 +141,8 @@ public class TowerController : MonoBehaviour
 
             if (toAttack)
             {
-                this.transform.LookAt(toAttack.transform);
+                if (_toTurn)
+                    _toTurn.LookAt(toAttack.transform);
                 FireBullet(toAttack);
 
             }
@@ -247,7 +252,7 @@ public class TowerController : MonoBehaviour
                     for (int i = 0; i < EnemiesList.Count; i++)
                     {
 
-                        Debug.Log(EnemiesList[i].name + "reçoit des dégats");
+                        //Debug.Log(EnemiesList[i].name + "reçoit des dégats");
                         Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                     }
                 }

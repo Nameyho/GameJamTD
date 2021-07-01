@@ -48,10 +48,12 @@ MonoBehaviour:
   _towerModel: {fileID: 2532039383545793328, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 8136648396933870819}
+  _toTurn: {fileID: 1578278660595979074}
   _delayShoot: 0.1
   _bulletSpeed: 10
   _bulletLifeSpan: 50
   _goldCost: 750
+  angle: 45
   _typeShoot: 2
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
   _turretDamage: 5
@@ -134,6 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d3824dabfc099488516aeee08588f1, type: 3}
+--- !u!4 &1578278660595979074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3442548933325069408, guid: d2d3824dabfc099488516aeee08588f1, type: 3}
+  m_PrefabInstance: {fileID: 5034663642153709794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6037272097306327946
 PrefabInstance:
   m_ObjectHideFlags: 0

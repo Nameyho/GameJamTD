@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &296149004879122146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3214450231842981347}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3214450231842981347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296149004879122146}
+  m_LocalRotation: {x: -0.1574473, y: -0, z: -0, w: 0.9875274}
+  m_LocalPosition: {x: 0, y: 0.621, z: 1.465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5530679907697472196}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -18.118, y: 0, z: 0}
 --- !u!1 &5446624769166811573
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerModel: {fileID: 2532039383545793328, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
-  _shootZone: {fileID: 8136648396933870819}
+  _shootZone: {fileID: 296149004879122146}
+  _toTurn: {fileID: 5530679907697472196}
   _delayShoot: 3
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -135,6 +166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb04a53a88282f14a92cc155a3f6fc44, type: 3}
+--- !u!4 &5530679907697472196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3442548933325069408, guid: eb04a53a88282f14a92cc155a3f6fc44, type: 3}
+  m_PrefabInstance: {fileID: 2087831769770414436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6037272097306327946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,11 +271,6 @@ PrefabInstance:
 --- !u!4 &8136648396000325798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2532039383545793324, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
-  m_PrefabInstance: {fileID: 6037272097306327946}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8136648396933870819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2532039382331592553, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   m_PrefabInstance: {fileID: 6037272097306327946}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &815176609293832434 stripped

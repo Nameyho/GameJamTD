@@ -22,8 +22,8 @@ public class Bullet : MonoBehaviour
 
     private Bullet _bullet;
 
-    private int _damage;
-    public int damage
+    private float _damage;
+    public float damage
     {
         get => _damage;
         set => _damage = value;

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using ScriptableObjectArchitecture;
 
 public class ButtonSelector : MonoBehaviour
 {
 
     #region Exposed
+
+    [SerializeField] private Button button;
 
     [SerializeField]
     private GameObject _TowerPrefab;
@@ -21,11 +24,18 @@ public class ButtonSelector : MonoBehaviour
 
     #region Methods
 
-    public void OnClick(){
-       if(_golds.Value> _TowerPrefab.GetComponent<TowerController>().goldCost){
+    public void OnClick()
+    {
+        if (_golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost)
+        {
             Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentTileTransform);
         }
     }
 
+    private void Update()
+    {
+        button.interactable = _golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost;
+
+    }
     #endregion
 }

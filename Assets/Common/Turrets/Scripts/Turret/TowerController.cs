@@ -182,9 +182,13 @@ public class TowerController : MonoBehaviour
            
             case _shootTypes.balistique : 
                
-                GameObject NewBullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
+                GameObject newBullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
                 
-
+                Bullet bullet = newBullet.GetComponent<Bullet>();
+               
+                bullet.damage = realdamage;
+                bullet.Shoot(_bulletSpeed);
+                Destroy(newBullet, _bulletLifeSpan);
                 break;
             
             case _shootTypes.instantanée :
@@ -225,6 +229,8 @@ public class TowerController : MonoBehaviour
 
         
     }
+
+
 
     #endregion
 

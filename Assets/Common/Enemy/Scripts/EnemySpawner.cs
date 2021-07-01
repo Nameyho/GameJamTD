@@ -15,7 +15,11 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField]
 	private int _turnActivation = 0;
 
-	[Header("Enemy")]
+    [Header("Boat Animation")]
+    [SerializeField]
+    private Boat _boat;
+
+    [Header("Enemy")]
 	[SerializeField]
 	private Vector3Collection _path;
 	[SerializeField]
@@ -90,13 +94,21 @@ public class EnemySpawner : MonoBehaviour
 
 	private void StopSpawnRoutine()
     {
+		if (_turnActivation > _turn.Value) return;
+		if (_boat != null) { _boat.UndockBoat(); }
+		
 		StopCoroutine(_spawnRoutine);
     }
 
 	private void StartSpawnRoutine()
 	{
 		if (_turnActivation > _turn.Value) return;
-		StartCoroutine(_spawnRoutine);
+		if (_boat != null)
+		{	
+			_boat.DockBoat();
+		}
+
+        StartCoroutine(_spawnRoutine);
 	}
 
     #endregion

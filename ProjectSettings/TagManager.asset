@@ -10,6 +10,7 @@ TagManager:
   - Flame
   - Building
   - blast
+  - overlay
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - tower
   - Flame
   - Blast
-  - 
+  - Building
   - 
   - 
   - 

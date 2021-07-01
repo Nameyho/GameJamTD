@@ -28,7 +28,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 756564903543150626, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_Name
-      value: emy_Medium
+      value: Enemy_Medium
       objectReference: {fileID: 0}
     - target: {fileID: 2875450461323727263, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: m_RootOrder
@@ -89,7 +89,7 @@ PrefabInstance:
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3060109983167622478}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: EnemyAnimation, Enemy
+      value: SwitchEnemyAnimation, Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName

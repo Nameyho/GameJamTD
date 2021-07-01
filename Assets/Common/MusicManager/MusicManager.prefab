@@ -46,8 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dayMusics:
   - {fileID: 8300000, guid: 68888bb8b49ea0547972085e5f333785, type: 3}
+  - {fileID: 8300000, guid: bf20a0c2b7a830043bf6b3f5b2eda62e, type: 3}
+  - {fileID: 8300000, guid: 43f645be800129e459f40db946afa14b, type: 3}
   _nightMusics:
   - {fileID: 8300000, guid: 7ec727cdd1d6c5548a4fef7bc7c05654, type: 3}
+  - {fileID: 8300000, guid: 2a205fa172ab87d4bb2dd151b1ebe264, type: 3}
+  - {fileID: 8300000, guid: d8e89ff00d90a144cb19703cb997679f, type: 3}
+  - {fileID: 8300000, guid: d0f3f96933aeb58448f5d15eda5bde4e, type: 3}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
   _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}
 --- !u!82 &7290296620463220005

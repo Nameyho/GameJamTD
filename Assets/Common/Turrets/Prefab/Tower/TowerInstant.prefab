@@ -49,7 +49,7 @@ MonoBehaviour:
   _towerModel: {fileID: 2532039383545793328, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 8136648396933870819}
-  _delayShoot: 0
+  _delayShoot: 3
   _bulletSpeed: 10
   _bulletLifeSpan: 50
   _goldCost: 250

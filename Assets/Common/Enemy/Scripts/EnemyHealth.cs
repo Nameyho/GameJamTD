@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Stats")]
 	[SerializeField]
-	private int _baseHealth = 10;
+	private float _baseHealth = 10;
     [SerializeField]
     private float _healthMultiplier = 1f;
     [SerializeField]
@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
     #region Main
 
-    public void ReceiveDamages(int damages)
+    public void ReceiveDamages(float damages)
     {
         if (!IsAlive) return;
         _health -= damages;
@@ -78,7 +78,7 @@ public class EnemyHealth : MonoBehaviour
         float bonusHealth = (_baseHealth * _turn) * _healthMultiplier;
         _health = _baseHealth;
 
-        _health += (int)bonusHealth;
+        _health += bonusHealth;
     }
 
     private void GiveGold()
@@ -91,7 +91,7 @@ public class EnemyHealth : MonoBehaviour
 
     #region Private And Protected Members
 
-    private int _health;
+    private float _health;
 
     #endregion
 }

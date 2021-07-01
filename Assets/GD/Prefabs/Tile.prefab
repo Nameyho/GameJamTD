@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 446151304058237517}
   - component: {fileID: 4939823418670432995}
   - component: {fileID: 6851236754518719338}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConstructZone
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -699,7 +699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onSelected: {fileID: 2100000, guid: 2ff951a9862864b47be42f5627275121, type: 2}
   _onExit: {fileID: 2100000, guid: 4f39392603407ec4b8050d3bf3c12b67, type: 2}
-  _currentTile: {fileID: 0}
   _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
 --- !u!1 &1800978148476844790
 GameObject:
@@ -1425,5 +1424,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onSelected: {fileID: 2100000, guid: 3bd5b3fb7a0e1c7409c41da1c02f1006, type: 2}
   _onExit: {fileID: 2100000, guid: 828159f66f859c2409b89f6540730ead, type: 2}
-  _currentTile: {fileID: 11400000, guid: 52ecbec83d8c56642b72aba6a0dd2f86, type: 2}
   _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}

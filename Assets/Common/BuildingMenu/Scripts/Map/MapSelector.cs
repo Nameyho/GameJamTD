@@ -24,6 +24,7 @@ public class MapSelector : MonoBehaviour
 
     TileTowerSelector lastcubeSelected = null;
 
+    public LayerMask _layerMask;
    
     #endregion
 
@@ -33,7 +34,7 @@ public class MapSelector : MonoBehaviour
     private void Update()
     {
 
-        OnClick();
+        OnHover();
 
     }
 
@@ -52,22 +53,26 @@ public class MapSelector : MonoBehaviour
         }
     }
 
-    private void OnClick(){
-          RaycastHit hit;
+    private void OnHover(){
+        RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        
        
-        if (Physics.Raycast(ray, out hit))
+
+
+
+        if (Physics.Raycast(ray, out hit,Mathf.Infinity,_layerMask.value))
         {
             Transform objectHit = hit.transform;
-          
+            Debug.Log(objectHit.tag);
             if (objectHit.CompareTag("Building"))
             {
-            
+                
                 TileTowerSelector cube = objectHit.GetComponent<TileTowerSelector>();
                 lastcubeSelected = cube;
                 TileTowerSelector.IsmenuMustBeOpen = true;
-                Debug.Log(cube);
-                _selectTileScriptable._CurrentTileTransform = cube.transform;
+                
+                _selectTileScriptable._CurrentTileTransform = objectHit.transform;
                 cube.OnSelection();
                 
                 //Debug.Log("entrée");
@@ -77,7 +82,7 @@ public class MapSelector : MonoBehaviour
        
            if(!objectHit.CompareTag("Building")) {
                 //Debug.Log("sortie");
-                TileTowerSelector.IsmenuMustBeOpen = false;
+                //TileTowerSelector.IsmenuMustBeOpen = false;
                 
                 if(lastcubeSelected)
                     lastcubeSelected.OnUnSelection();
@@ -89,6 +94,9 @@ public class MapSelector : MonoBehaviour
 
              
             
+
+        }else{
+           
 
         }
 

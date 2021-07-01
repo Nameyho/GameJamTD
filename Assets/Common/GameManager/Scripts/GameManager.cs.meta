@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d52c2b586bd790e41b21fb78b65297e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
+  - _playerLife: {fileID: 11400000, guid: a5865be5029ac6449a627005ac938a40, type: 2}
+  - _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
+  - _playerHasLost: {fileID: 11400000, guid: 6191bc0683e4a65478cf95c6392b8073, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

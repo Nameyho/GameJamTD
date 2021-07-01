@@ -72,8 +72,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeBetweenSpawn: 1
   _amountToSpawn: -1
+  _turnActivation: 0
   _path: {fileID: 11400000, guid: 218fe2925abd3aa469a32b970a69c117, type: 2}
-  _enemy: {fileID: 6089873397589751272, guid: a3aa7d7218147204e95dea7e1a868799, type: 3}
+  _enemyPrefabs:
+  - {fileID: 8261434478862303139, guid: 9d8440cc14a53dc45afc4d0466b38157, type: 3}
+  - {fileID: 6089873397589751272, guid: a3aa7d7218147204e95dea7e1a868799, type: 3}
+  - {fileID: 5528232703135649734, guid: 5b87145bf82e68a49b1c5b784c9a6a32, type: 3}
+  _spawnProbabilities: 0a0000000a0000000a000000
+  _bonusProbabilitiesByTurn: 010000000100000001000000
+  _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}
   _dayHasDawned: {fileID: 11400000, guid: 1d26c2ef3e3862547a7f3bac365d014e, type: 2}
 --- !u!1001 &5254941045318159399

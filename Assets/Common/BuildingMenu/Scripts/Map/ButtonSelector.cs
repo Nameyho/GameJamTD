@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class ButtonSelector : MonoBehaviour
 {
@@ -11,17 +12,19 @@ public class ButtonSelector : MonoBehaviour
     private GameObject _TowerPrefab;
 
     [SerializeField]
-    private GameObject _GhostTowerPrefab;
+    private IntVariable _golds;
+
 
     [SerializeField]
-    private SelectedTower _SelectedTowerScriptableobject;
+    private SelectedTile _selectedTitleScriptableObjet;
     #endregion
 
     #region Methods
 
     public void OnClick(){
-        _SelectedTowerScriptableobject._SelectedTower = _TowerPrefab;
-        _SelectedTowerScriptableobject._GhostTower = _GhostTowerPrefab;
+       if(_golds.Value> _TowerPrefab.GetComponent<TowerController>().goldCost){
+            Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentTileTransform);
+        }
     }
 
     #endregion

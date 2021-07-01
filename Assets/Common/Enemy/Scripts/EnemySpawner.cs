@@ -12,12 +12,22 @@ public class EnemySpawner : MonoBehaviour
 	private float _timeBetweenSpawn = 2f;
 	[SerializeField]
 	private int _amountToSpawn = 5;
+	[SerializeField]
+	private int _turnActivation = 0;
 
 	[Header("Enemy")]
 	[SerializeField]
 	private Vector3Collection _path;
 	[SerializeField]
-	private EnemyWalker _enemy;
+	private EnemyWalker[] _enemyPrefabs;
+	[SerializeField, Tooltip("Ordre basé sur la liste des prefabs Enemy")]
+	private int[] _spawnProbabilities = new int[] {};
+	[SerializeField]
+	private int[] _bonusProbabilitiesByTurn = new int[] { };
+
+	[Header("Scriptable Objects")]
+	[SerializeField]
+	private IntVariable _turn;
 
 	[Header("Events")]
 	[SerializeField]
@@ -35,12 +45,13 @@ public class EnemySpawner : MonoBehaviour
 		if (_transform == null) { _transform = transform; }
 		if (_sphereCollider == null) { _sphereCollider = GetComponent<SphereCollider>(); }
 		_baseSpawnAmount = _amountToSpawn;
-		_spawnEnemy = SpawnRoutine();
+		_spawnRoutine = SpawnRoutine();
 	}
 
     private void Start()
     {
 		_nightHasFallen.AddListener(StartSpawnRoutine);
+		_nightHasFallen.AddListener(UpdateProbabilityOnNightPassed);
 		_dayHasDawned.AddListener(StopSpawnRoutine);
 	}
 
@@ -57,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
 		var spawnPosition = new Vector3(randomPositionX, _transform.position.y, randomPositionZ);
 
-		var newEnemy = Instantiate(_enemy, spawnPosition, _transform.rotation);
+		var newEnemy = Instantiate(RandomEnemyByProbability(), spawnPosition, _transform.rotation);
 		newEnemy.PathToFollow = _path;
 		_amountToSpawn--;
 	}
@@ -71,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
 
 			if (_amountToSpawn == 0)
 			{
-				StopCoroutine(_spawnEnemy);
+				StopCoroutine(_spawnRoutine);
 				_amountToSpawn = _baseSpawnAmount;
 			}
 		}
@@ -79,20 +90,64 @@ public class EnemySpawner : MonoBehaviour
 
 	private void StopSpawnRoutine()
     {
-		StopCoroutine(_spawnEnemy);
+		StopCoroutine(_spawnRoutine);
     }
 
 	private void StartSpawnRoutine()
 	{
-		StartCoroutine(_spawnEnemy);
+		if (_turnActivation > _turn.Value) return;
+		StartCoroutine(_spawnRoutine);
 	}
 
-	#endregion
+    #endregion
 
 
-	#region Private and Protected Members
+    #region Utils
 
-	private IEnumerator _spawnEnemy;
+	private EnemyWalker RandomEnemyByProbability()
+    {
+		int index = 0;
+		int total = 0;
+		int random;
+
+		for (int i = 0; i < _enemyPrefabs.Length; i++)
+		{
+			if (_spawnProbabilities.Length <= i) continue;
+			total += _spawnProbabilities[i];
+		}
+
+		random = Random.Range(0, total);
+
+		while (random > 0)
+		{
+			random -= _spawnProbabilities[index];
+			index++;
+		}
+		index--;
+
+		if (index < 0)
+		{
+			index = 0;
+		}
+
+		return _enemyPrefabs[index];
+	}
+
+	private void UpdateProbabilityOnNightPassed()
+    {
+        for (int i = 0; i < _spawnProbabilities.Length; i++)
+        {
+			if (_spawnProbabilities.Length <= i) continue;
+			_spawnProbabilities[i] += _bonusProbabilitiesByTurn[i];
+		}
+    }
+
+    #endregion
+
+
+    #region Private and Protected Members
+
+    private IEnumerator _spawnRoutine;
 	private Transform _transform;
 	private SphereCollider _sphereCollider;
 	private int _baseSpawnAmount;

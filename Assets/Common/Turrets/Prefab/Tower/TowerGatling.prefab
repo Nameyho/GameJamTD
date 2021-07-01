@@ -49,6 +49,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 8136648396933870819}
   _toTurn: {fileID: 1578278660595979074}
+  _visualEffect: {fileID: 0}
   _delayShoot: 0.1
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -88,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2d3824dabfc099488516aeee08588f1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2d3824dabfc099488516aeee08588f1, type: 3}
       propertyPath: m_LocalPosition.x

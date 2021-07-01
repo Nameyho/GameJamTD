@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using ScriptableObjectArchitecture;
 
 public class TowerController : MonoBehaviour
@@ -19,6 +20,9 @@ public class TowerController : MonoBehaviour
 
     [SerializeField]
     private Transform _toTurn;
+
+    [SerializeField]
+    private VisualEffect _visualEffect;
 
 
 
@@ -222,7 +226,8 @@ public class TowerController : MonoBehaviour
                 Bullet bullet = newBullet.GetComponent<Bullet>();
                 // newBullet = velocity;
 
-
+                if(_visualEffect)
+                    _visualEffect.Play();
 
                 bullet.damage = realdamage;
                 bullet.Shoot(_bulletSpeed);

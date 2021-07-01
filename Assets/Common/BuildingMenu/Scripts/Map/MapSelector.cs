@@ -48,11 +48,13 @@ public class MapSelector : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask.value))
         {
-            Transform objectHit = hit.transform;
             if(lastcubeSelected)
             {
-                _constructionMenuPanel.SetActive(true);
-                _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 4.9f;
+                if(!lastcubeSelected.towerBuilt)
+                {
+                    _constructionMenuPanel.SetActive(true);
+                    _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 4.9f;
+                }
             }
             //if (!objectHit.CompareTag("Building"))
             //{

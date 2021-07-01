@@ -6,7 +6,7 @@ public class TextSelectedTower : MonoBehaviour
     #region exposed
 
     [SerializeField]
-    private SelectedTower _selectedTowerScriptableobject;
+    private SelectedTile _selectedTowerScriptableobject;
     #endregion
 
     #region Members
@@ -18,14 +18,11 @@ public class TextSelectedTower : MonoBehaviour
 
     void Update()
     {
-      
-      if(_text.text !=_selectedTowerScriptableobject._SelectedTower.name ){
-     _text.text =_selectedTowerScriptableobject._SelectedTower.name;
-      
+
 
       
 
-      }
+      
         
     }
 

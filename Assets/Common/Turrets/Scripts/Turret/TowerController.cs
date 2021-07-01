@@ -24,29 +24,27 @@ public class TowerController : MonoBehaviour
     private float _delayShoot;
     private float _nextShotTime;
 
-
+   
     [SerializeField]
     private float _bulletSpeed;
 
-
+    
     [SerializeField]
     private float _bulletLifeSpan;
 
-
+    
     [SerializeField]
     private int _goldCost;
 
-    public int goldCost
-    {
+        public int goldCost{
         get => _goldCost;
         set => _goldCost = value;
     }
-
+    
     public _shootTypes _typeShoot;
 
     [System.Serializable]
-    public enum _shootTypes
-    {
+     public enum _shootTypes {
         balistique = 1,
         instantanée = 2,
 
@@ -72,7 +70,7 @@ public class TowerController : MonoBehaviour
 
     #region private
 
-    Collider toAttack = null;
+    Collider toAttack =null;
 
     private bool IsFlameOn;
 
@@ -80,66 +78,49 @@ public class TowerController : MonoBehaviour
     #region private 
 
     private List<Collider> EnemiesList;
-    #endregion
+    #endregion 
 
     #region Unity API
-    private void Update()
+            private void Update()
     {
-        float HighestDistance = -1;
-
-        for (int i = EnemiesList.Count; i > 0; i--)
-        {
-            if (!EnemiesList[i-1].enabled)
+            float  HighestDistance =-1 ;
+                
+            if((!toAttack))
             {
-                EnemiesList.RemoveAt(i-1);
-            }
-        }
-
-        if (!toAttack || !toAttack.enabled)
-        {
-            toAttack = null;
-        }
-
-        if ((!toAttack))
-        {
-
-            foreach (Collider e in EnemiesList)
-            {
-                if (e.GetComponentInParent<EnemyWalker>().GetRemainingDistance() > HighestDistance)
+                
+                foreach (Collider e in EnemiesList)
                 {
-
-                    HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
-                    toAttack = e;
-                    this.transform.LookAt(toAttack.transform);
+                        if(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance() > HighestDistance)
+                        {
+                 
+                        HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
+                        toAttack = e;
+                         this.transform.LookAt(toAttack.transform);
+                        }
                 }
             }
-        }
-        else
-        {
-
-        }
-        if ((toAttack) && !IsFlameOn)
-        {
-
-            this.transform.LookAt(toAttack.transform);
-            if ((Time.time >= _nextShotTime))
-            {
-                FireBullet(toAttack);
-                _nextShotTime = Time.time + _delayShoot;
+            else{
+                 
             }
-        }
-        else
-        {
+                if((toAttack)&& !IsFlameOn)
+                {
 
-            if (toAttack)
-            {
-                this.transform.LookAt(toAttack.transform);
-                FireBullet(toAttack);
+                       this.transform.LookAt(toAttack.transform);
+                        if ((Time.time >= _nextShotTime)){
+                         FireBullet(toAttack);
+                        _nextShotTime = Time.time + _delayShoot;
+                        }  
+                }else
+                {   
+                 
+                        if(toAttack){
+                               this.transform.LookAt(toAttack.transform);
+                         FireBullet(toAttack);
 
-            }
-
-
-        }
+                        }
+                      
+                         
+                }
 
 
 
@@ -149,46 +130,41 @@ public class TowerController : MonoBehaviour
     {
         if (other.CompareTag("Mob"))
         {
-
+          
             EnemiesList.Add(other);
-
-
+            
+            
         }
 
 
     }
 
-    private void OnTriggerExit(Collider other)
-    {
+    private void OnTriggerExit(Collider other) {
 
         if (other.CompareTag("Mob"))
         {
-            if (other == toAttack)
-            {
-                toAttack = null;
+            if(other == toAttack){   
+            toAttack = null;     
             }
             EnemiesList.Remove(other);
         }
     }
+    
 
-
-    private void Start()
-    {
+    private void Start() {
         EnemiesList = new List<Collider>();
         _gold.Value -= _goldCost;
     }
 
 
-    private void OnDrawGizmos()
-    {
-
-        if (toAttack)
-        {
-            Gizmos.DrawLine(_shootZone.transform.position, toAttack.transform.position);
-        }
-
-
-
+    private void OnDrawGizmos() {
+      
+      if(toAttack){
+        Gizmos.DrawLine(_shootZone.transform.position, toAttack.transform.position);
+      }
+             
+        
+       
     }
     #endregion
 
@@ -197,38 +173,33 @@ public class TowerController : MonoBehaviour
 
     private void FireBullet(Collider Other)
     {
-
-        float realdamage = (_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
-
-        switch (_typeShoot)
+        
+         float realdamage = _turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel);
+         
+        switch(_typeShoot)
         {
+            
+           
+            case _shootTypes.balistique : 
+               
+                GameObject NewBullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
+                
 
-
-            case _shootTypes.balistique:
-
-                GameObject newbullet = Instantiate(_bulletPrefab, _shootZone.transform.position, _shootZone.transform.rotation);
-                Bullet bullet = newbullet.GetComponent<Bullet>();
-
-                bullet.damage = realdamage;
-                bullet.Shoot(_bulletSpeed);
-                Destroy(newbullet, _bulletLifeSpan);
                 break;
-
-            case _shootTypes.instantanée:
+            
+            case _shootTypes.instantanée :
 
 
                 Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
                 break;
 
-            case _shootTypes.LanceFlamme:
+            case _shootTypes.LanceFlamme :
 
+                
+                if(IsFlameOn ){
 
-                if (IsFlameOn)
-                {
-
-                    if (!toAttack)
-                    {
+                    if(!toAttack){
                         // stop lance flamme
                         IsFlameOn = false;
                         return;
@@ -236,32 +207,29 @@ public class TowerController : MonoBehaviour
 
                     for (int i = 0; i < EnemiesList.Count; i++)
                     {
-
+                      
                         Debug.Log(EnemiesList[i].name + "reçoit des dégats");
-                        Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
+                         Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                     }
-                }
-                else
-                {
+                }else{
                     IsFlameOn = true;
-
+                   
                 }
 
-
+                   
 
                 //if pas active je l'actif , lance flamme actif
                 break;
 
         }
 
-
+        
     }
 
     #endregion
 
     #region public 
-    public void RemoveEnemy(Collider other)
-    {
+    public void RemoveEnemy(Collider other){
         EnemiesList.Remove(other);
     }
     #endregion

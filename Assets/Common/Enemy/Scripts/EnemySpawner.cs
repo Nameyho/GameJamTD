@@ -19,7 +19,9 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField]
 	private Vector3Collection _path;
 	[SerializeField]
-	private EnemyWalker _enemy;
+	private EnemyWalker[] _enemyPrefabs;
+	[SerializeField, Tooltip("Ordre basé sur la liste des prefabs Enemy")]
+	private int[] _spawnProbabilities = new int[] {};
 
 	[Header("Scriptable Objects")]
 	[SerializeField]
@@ -63,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
 		var spawnPosition = new Vector3(randomPositionX, _transform.position.y, randomPositionZ);
 
-		var newEnemy = Instantiate(_enemy, spawnPosition, _transform.rotation);
+		var newEnemy = Instantiate(RandomEnemyByProbability(), spawnPosition, _transform.rotation);
 		newEnemy.PathToFollow = _path;
 		_amountToSpawn--;
 	}
@@ -94,12 +96,51 @@ public class EnemySpawner : MonoBehaviour
 		StartCoroutine(_spawnRoutine);
 	}
 
-	#endregion
+    #endregion
 
 
-	#region Private and Protected Members
+    #region Utils
 
-	private IEnumerator _spawnRoutine;
+	private EnemyWalker RandomEnemyByProbability()
+    {
+		int index = 0;
+		int total = 0;
+		int random;
+
+		for (int i = 0; i < _enemyPrefabs.Length; i++)
+		{
+			if (_spawnProbabilities.Length <= i) continue;
+			total += _spawnProbabilities[i];
+		}
+
+		random = Random.Range(0, total);
+
+		while (random > 0)
+		{
+			random -= _spawnProbabilities[index];
+			index++;
+		}
+		index--;
+
+		if (index < 0)
+		{
+			index = 0;
+		}
+
+		return _enemyPrefabs[index];
+	}
+
+	private void UpdateProbabilityOnNightPassed()
+    {
+
+    }
+
+    #endregion
+
+
+    #region Private and Protected Members
+
+    private IEnumerator _spawnRoutine;
 	private Transform _transform;
 	private SphereCollider _sphereCollider;
 	private int _baseSpawnAmount;

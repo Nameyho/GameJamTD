@@ -93,9 +93,9 @@ public class TowerController : MonoBehaviour
                         if(e.GetComponentInParent<EnemyWalker>().GetRemainingDistance() > HighestDistance)
                         {
                  
-                    HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
+                        HighestDistance = e.GetComponentInParent<EnemyWalker>().GetRemainingDistance();
                         toAttack = e;
-                         this.transform.LookAt(toAttack.transform);
+                        this.transform.LookAt(toAttack.transform);
                         }
                 }
             }
@@ -174,7 +174,7 @@ public class TowerController : MonoBehaviour
     private void FireBullet(Collider Other)
     {
         
-         int realdamage = Mathf.CeilToInt(_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
+        float realdamage = (_turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel));
          
         switch(_typeShoot)
         {

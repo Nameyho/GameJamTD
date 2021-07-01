@@ -8,6 +8,8 @@ public class DayNightCycle : MonoBehaviour
 
 	[Header("Time")]
 	[SerializeField]
+	private int _startDaySeconds = 10;
+	[SerializeField]
 	private int _daySeconds = 30;
 	[SerializeField]
 	private int _nightSeconds = 60;
@@ -38,7 +40,7 @@ public class DayNightCycle : MonoBehaviour
 	private void Awake()
     {
 		_nightSecondsRemaining.Value = _nightSeconds;
-		_daySecondsRemaining.Value = _daySeconds;
+		_daySecondsRemaining.Value = _startDaySeconds;
 		_dayCycle = DayCycle();
 		_nightCycle = NightCycle();
 	}

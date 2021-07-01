@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
 {
 
     #region private
-    
+
     private Transform _transform;
     private Rigidbody _Rigidbody;
 
@@ -22,15 +22,16 @@ public class Bullet : MonoBehaviour
 
     private Bullet _bullet;
 
-    private float _damage;
-    public float damage{
+    private int _damage;
+    public int damage
+    {
         get => _damage;
         set => _damage = value;
     }
 
-    public enum  TypeBullet
+    public enum TypeBullet
     {
-        classique = 0 ,
+        classique = 0,
         explosive = 1
     }
 
@@ -65,31 +66,35 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        switch(_bulletType)
-    {
-        case TypeBullet.classique :
-         GetComponentInChildren<GameObject>().SetActive(true);
+        Debug.Log(other.name);
+        switch (_bulletType)
+        {
+            case TypeBullet.classique:
+                GetComponentInChildren<GameObject>().SetActive(true);
                 other.GetComponent<EnemyHealth>().ReceiveDamages(_damage);
                 Debug.Log(other.name);
-            Destroy(gameObject);
-            break;
+                Destroy(gameObject);
+                break;
 
-        case TypeBullet.explosive :
+            case TypeBullet.explosive:
 
-              
-                Collider[] hitColliders = Physics.OverlapSphere(this.transform.position,_radius);
 
-                foreach(var hitCollider in hitColliders){
-                  
-                    if(hitCollider.CompareTag("Mob")){
+                Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, _radius);
+
+                foreach (var hitCollider in hitColliders)
+                {
+
+                    if (hitCollider.CompareTag("Mob"))
+                    {
                         hitCollider.GetComponent<EnemyHealth>().ReceiveDamages(_damage);
                     }
                 }
 
+                Destroy(gameObject);
+
                 break;
         }
-       
+
     }
 
     #endregion

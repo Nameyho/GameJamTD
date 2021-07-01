@@ -513,6 +513,7 @@ MonoBehaviour:
   _towerModel: {fileID: 8136648396000325818}
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 8136648396933870819}
+  _toTurn: {fileID: 4427061807239669930}
   _delayShoot: 0
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -620,6 +621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9946061a66c514b89679761499412f, type: 3}
+--- !u!4 &4427061807239669930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2654711678949032894, guid: 6a9946061a66c514b89679761499412f, type: 3}
+  m_PrefabInstance: {fileID: 1848581923089066772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6037272097306327946
 PrefabInstance:
   m_ObjectHideFlags: 0

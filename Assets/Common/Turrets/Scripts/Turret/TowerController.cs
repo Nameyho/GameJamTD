@@ -40,6 +40,10 @@ public class TowerController : MonoBehaviour
         get => _goldCost;
         set => _goldCost = value;
     }
+
+    [SerializeField]
+    [Range(10f, 80f)]
+    private float angle = 45f;
     
     public _shootTypes _typeShoot;
 
@@ -55,7 +59,7 @@ public class TowerController : MonoBehaviour
     private IntVariable _gold;
 
     [SerializeField]
-    private int _turretDamage;
+    private float _turretDamage;
 
 
     [SerializeField]
@@ -175,7 +179,7 @@ public class TowerController : MonoBehaviour
     {
         
          float realdamage = _turretDamage + ((_turretDamage * _level) * _damageMultiplierByLevel);
-         
+        Vector3 point = Other.transform.position;
         switch(_typeShoot)
         {
             
@@ -183,8 +187,13 @@ public class TowerController : MonoBehaviour
             case _shootTypes.balistique : 
                
                 GameObject newBullet = Instantiate(_bulletPrefab, _shootZone.transform.position,_shootZone.transform.rotation);
-                
+                 var velocity = BallisticVelocity(point, angle);
+                 Debug.Log("Firing at " + point + " velocity " + velocity);
                 Bullet bullet = newBullet.GetComponent<Bullet>();
+                newBullet.transform.position = transform.position;
+               // newBullet = velocity;
+                
+                
                
                 bullet.damage = realdamage;
                 bullet.Shoot(_bulletSpeed);
@@ -227,10 +236,23 @@ public class TowerController : MonoBehaviour
 
         }
 
-        
+  
     }
 
+          private Vector3 BallisticVelocity(Vector3 destination, float angle)
+    {
+        Vector3 dir = destination - transform.position; // get Target Direction
+        float height = dir.y; // get height difference
+        dir.y = 0; // retain only the horizontal difference
+        float dist = dir.magnitude; // get horizontal direction
+        float a = angle * Mathf.Deg2Rad; // Convert angle to radians
+        dir.y = dist * Mathf.Tan(a); // set dir to the elevation angle.
+        dist += height / Mathf.Tan(a); // Correction for small height differences
 
+        // Calculate the velocity magnitude
+        float velocity = Mathf.Sqrt(dist * Physics.gravity.magnitude / Mathf.Sin(2 * a));
+        return velocity * dir.normalized; // Return a normalized vector.
+    }
 
     #endregion
 

@@ -53,7 +53,7 @@ public class MapSelector : MonoBehaviour
                 if(!lastcubeSelected.towerBuilt)
                 {
                     _constructionMenuPanel.SetActive(true);
-                    _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 5.9f;
+                    _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 10.9f;
                 }
             }
             //if (!objectHit.CompareTag("Building"))

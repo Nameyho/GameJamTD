@@ -76,8 +76,14 @@ public class EnemySpawner : MonoBehaviour
 		float radius = _sphereCollider.radius;
 		float randomPositionX = _transform.position.x + Random.Range(-radius, radius);
 		float randomPositionZ = _transform.position.z + Random.Range(-radius, radius);
-		int chance = 100 / _percentSquadChance;
-		int pickNumber = Random.Range(1, chance);
+		int chance = 0;
+		int pickNumber = 0;
+
+		if (_percentSquadChance != 0)
+        {
+			chance = 100 / _percentSquadChance;
+			pickNumber = Random.Range(1, chance);
+		}
 
 		var spawnPosition = new Vector3(randomPositionX, _transform.position.y, randomPositionZ);
 

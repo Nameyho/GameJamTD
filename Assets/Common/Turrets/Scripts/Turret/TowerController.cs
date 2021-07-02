@@ -241,6 +241,8 @@ public class TowerController : MonoBehaviour
 
 
                 Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
+                if (_visualEffect)
+                    _visualEffect.Play();
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
                 break;
 

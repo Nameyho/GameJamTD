@@ -145,21 +145,22 @@ public class TowerController : MonoBehaviour
                         _toTurn.LookAt(toAttack.transform);
                 }
             }
-        }
-        else
-        {
-
-        }
-        if ((toAttack) && !IsFlameOn)
-        {
-            if (_toTurn)
-                _toTurn.LookAt(toAttack.transform);
-            if ((Time.time >= _nextShotTime))
+            if(IsFlameOn)
             {
-                FireBullet(toAttack);
-                _nextShotTime = Time.time + _delayShoot;
+                IsFlameOn = false;
+                _visualEffect.SendEvent("OnStop");
             }
         }
+        //else if (!IsFlameOn)
+        //{
+        //    if (_toTurn)
+        //        _toTurn.LookAt(toAttack.transform);
+        //    if ((Time.time >= _nextShotTime))
+        //    {
+        //        FireBullet(toAttack);
+        //        _nextShotTime = Time.time + _delayShoot;
+        //    }
+        //}
         else
         {
 

@@ -94,7 +94,7 @@ MonoBehaviour:
   _turretDamage: 7
   _level: 1
   _maxLevel: 2
-  _damageMultiplierByLevel: 0
+  _damageMultiplierByLevel: 1
 --- !u!54 &5446624769166811576
 Rigidbody:
   m_ObjectHideFlags: 0

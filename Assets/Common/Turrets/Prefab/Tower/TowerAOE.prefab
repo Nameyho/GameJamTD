@@ -556,7 +556,7 @@ MonoBehaviour:
   angle: 45
   _typeShoot: 3
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
-  _turretDamage: 40
+  _turretDamage: 20
   _level: 1
   _maxLevel: 2
   _damageMultiplierByLevel: 1

@@ -80,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: _baseHealth
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 8704838302472581117, guid: 0301bc34350a69c4ea5ede404289674b, type: 3}
       propertyPath: OnEnemyDead.m_PersistentCalls.m_Calls.Array.size

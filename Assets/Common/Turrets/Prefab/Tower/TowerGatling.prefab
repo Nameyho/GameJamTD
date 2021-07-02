@@ -51,14 +51,14 @@ MonoBehaviour:
   _shootZone2: {fileID: 0}
   _toTurn: {fileID: 1578278660595979074}
   _visualEffect: {fileID: 0}
-  _delayShoot: 0.1
+  _delayShoot: 0.05
   _bulletSpeed: 10
   _bulletLifeSpan: 50
-  _goldCost: 750
+  _goldCost: 500
   angle: 45
   _typeShoot: 2
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
-  _turretDamage: 5
+  _turretDamage: 7
   _level: 0
   _damageMultiplierByLevel: 0
 --- !u!54 &5446624769166811576
@@ -150,6 +150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5446624769166811575}
     m_Modifications:
+    - target: {fileID: 2252206168427218532, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_Radius
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2532039382331592548, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.069

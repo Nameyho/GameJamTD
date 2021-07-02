@@ -85,7 +85,7 @@ MonoBehaviour:
   _delayShoot: 3
   _bulletSpeed: 20
   _bulletLifeSpan: 50
-  _goldCost: 500
+  _goldCost: 650
   angle: 45
   _typeShoot: 1
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}

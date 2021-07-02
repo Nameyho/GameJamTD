@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 	public void ReloadGames(){
 		Time.timeScale = 1f;
        
-        SceneManager.LoadScene("Fina_Scene 1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
 
 

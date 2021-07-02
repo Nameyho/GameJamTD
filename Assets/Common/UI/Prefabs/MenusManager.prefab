@@ -1444,8 +1444,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 7466713765687373152}
-  _TowerPrefab: {fileID: 5446624769166811573, guid: bbae1e7ff26d3e44b9b691cbac0d0da1, type: 3}
+  _TowerPrefab: {fileID: 0}
   _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
+  levelUp: 1
   _selectedTitleScriptableObjet: {fileID: 11400000, guid: 52ecbec83d8c56642b72aba6a0dd2f86, type: 2}
 --- !u!114 &7493558350486373390
 MonoBehaviour:
@@ -1708,8 +1709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 7466713767177857586}
-  _TowerPrefab: {fileID: 5446624769166811573, guid: 6fdf5bf298ef537408f97ce1d0cdf489, type: 3}
+  _TowerPrefab: {fileID: 0}
   _golds: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
+  levelUp: 0
   _selectedTitleScriptableObjet: {fileID: 11400000, guid: 52ecbec83d8c56642b72aba6a0dd2f86, type: 2}
 --- !u!114 &9070931993387604623
 MonoBehaviour:

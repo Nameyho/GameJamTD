@@ -788,6 +788,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7648289127175039302, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_Layer
       value: 7

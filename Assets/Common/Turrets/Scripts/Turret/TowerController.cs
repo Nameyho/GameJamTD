@@ -152,16 +152,16 @@ public class TowerController : MonoBehaviour
                 _audioSource.Stop();
             }
         }
-        //else if (!IsFlameOn)
-        //{
-        //    if (_toTurn)
-        //        _toTurn.LookAt(toAttack.transform);
-        //    if ((Time.time >= _nextShotTime))
-        //    {
-        //        FireBullet(toAttack);
-        //        _nextShotTime = Time.time + _delayShoot;
-        //    }
-        //}
+        else if (!IsFlameOn)
+        {
+            if (_toTurn)
+                _toTurn.LookAt(toAttack.transform);
+            if ((Time.time >= _nextShotTime))
+            {
+                FireBullet(toAttack);
+                _nextShotTime = Time.time + _delayShoot;
+            }
+        }
         else
         {
 

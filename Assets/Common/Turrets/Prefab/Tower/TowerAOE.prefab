@@ -550,11 +550,11 @@ MonoBehaviour:
   _delayShoot: 0
   _bulletSpeed: 10
   _bulletLifeSpan: 50
-  _goldCost: 500
+  _goldCost: 650
   angle: 45
   _typeShoot: 3
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
-  _turretDamage: 50
+  _turretDamage: 40
   _level: 1
   _damageMultiplierByLevel: 1
 --- !u!54 &5446624769166811576

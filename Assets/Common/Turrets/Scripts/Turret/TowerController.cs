@@ -344,6 +344,7 @@ public class TowerController : MonoBehaviour
     {
         if (IsMaxLevel)
         {
+            _gold.Value -= _goldCost;
             _level++;
             _levelUpVisual.SetActive(true);
         }

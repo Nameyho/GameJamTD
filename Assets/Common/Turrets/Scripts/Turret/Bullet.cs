@@ -9,6 +9,11 @@ public class Bullet : MonoBehaviour
     private Transform _transform;
     private Rigidbody _Rigidbody;
 
+    [SerializeField]
+    private GameObject _explosion;
+    [SerializeField]
+    private SphereCollider _collider;
+
     [Header("movement")]
     [SerializeField]
     private float _bulletSpeed;
@@ -94,7 +99,9 @@ public class Bullet : MonoBehaviour
                     }
                 }
 
+                Instantiate(_explosion, _transform.position, _transform.rotation);
                 Destroy(gameObject);
+
 
                 break;
         }

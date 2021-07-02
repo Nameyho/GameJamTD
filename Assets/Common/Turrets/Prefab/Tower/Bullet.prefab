@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a409bc290df3f4585c1217a82d01f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosion: {fileID: 1332215564402133333, guid: c260dfd262f4215439c44e039c2562de, type: 3}
+  _collider: {fileID: 176645954373332478}
   _bulletSpeed: 45.45
   _radius: 5
   _bulletType: 1

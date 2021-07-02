@@ -28,6 +28,13 @@ public class EnemySpawner : MonoBehaviour
 	private int[] _spawnProbabilities = new int[] {};
 	[SerializeField]
 	private int[] _bonusProbabilitiesByTurn = new int[] { };
+	[SerializeField]
+	private int _amountOfTinyGuy = 3;
+	[SerializeField, Range(0, 100)]
+	private int _percentSquadChance = 5;
+
+	[SerializeField]
+	private EnemyWalker _tinyGuyPrefab;
 
 	[Header("Scriptable Objects")]
 	[SerializeField]
@@ -69,11 +76,33 @@ public class EnemySpawner : MonoBehaviour
 		float radius = _sphereCollider.radius;
 		float randomPositionX = _transform.position.x + Random.Range(-radius, radius);
 		float randomPositionZ = _transform.position.z + Random.Range(-radius, radius);
+		int chance = 100 / _percentSquadChance;
+		int pickNumber = Random.Range(1, chance);
 
 		var spawnPosition = new Vector3(randomPositionX, _transform.position.y, randomPositionZ);
 
-		var newEnemy = Instantiate(RandomEnemyByProbability(), spawnPosition, _transform.rotation);
-		newEnemy.PathToFollow = _path;
+		var enemyPick = RandomEnemyByProbability();
+
+		if (enemyPick == _tinyGuyPrefab && pickNumber == 1)
+        {
+			for (int i = 0; i < 4; i++)
+			{
+				randomPositionX = _transform.position.x + Random.Range(-radius * 1.5f, radius * 1.5f);
+				randomPositionZ = _transform.position.z + Random.Range(-radius * 1.5f, radius * 1.5f);
+
+				spawnPosition = new Vector3(randomPositionX, _transform.position.y, randomPositionZ);
+
+				var newTinyGuy = Instantiate(_tinyGuyPrefab, spawnPosition, _transform.rotation);
+				newTinyGuy.PathToFollow = _path;
+			}
+		}
+		else
+        {
+			var newEnemy = Instantiate(enemyPick, spawnPosition, _transform.rotation);
+			newEnemy.PathToFollow = _path;
+		}
+
+
 		_amountToSpawn--;
 	}
 

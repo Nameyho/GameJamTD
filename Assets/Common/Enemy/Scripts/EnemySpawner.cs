@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
 
 		if (enemyPick == _tinyGuyPrefab && pickNumber == 1)
         {
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < _amountOfTinyGuy; i++)
 			{
 				randomPositionX = _transform.position.x + Random.Range(-radius * 1.5f, radius * 1.5f);
 				randomPositionZ = _transform.position.z + Random.Range(-radius * 1.5f, radius * 1.5f);

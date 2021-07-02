@@ -27,6 +27,12 @@ public class TowerController : MonoBehaviour
     [SerializeField]
     private VisualEffect _visualEffect;
 
+    [SerializeField]
+    private GameObject _levelUpVisual;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
 
 
     [Header("tweaking")]
@@ -76,6 +82,17 @@ public class TowerController : MonoBehaviour
 
     [SerializeField]
     private int _level;
+
+    [SerializeField]
+    private int _maxLevel;
+
+    public bool IsMaxLevel
+    {
+        get
+        {
+            return (_level < _maxLevel);
+        }
+    }
 
     [SerializeField]
 
@@ -187,6 +204,14 @@ public class TowerController : MonoBehaviour
         }
     }
 
+    private void PlaySound()
+    {
+        if(_audioSource)
+        {
+            _audioSource.pitch = Random.Range(0.8f, 1.2f);
+            _audioSource.PlayOneShot(_audioSource.clip);
+        }
+    }
 
     private void Start()
     {
@@ -232,6 +257,8 @@ public class TowerController : MonoBehaviour
                 if(_visualEffect)
                     _visualEffect.Play();
 
+                PlaySound();
+
                 bullet.damage = realdamage;
                 bullet.Shoot(_bulletSpeed);
                 Destroy(newBullet, _bulletLifeSpan);
@@ -243,6 +270,7 @@ public class TowerController : MonoBehaviour
                 Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
                 if (_visualEffect)
                     _visualEffect.Play();
+                PlaySound();
                 //insérer appel de la fonction pour baisser le point de vie de l'ennemie
                 break;
 
@@ -311,6 +339,17 @@ public class TowerController : MonoBehaviour
     {
         EnemiesList.Remove(other);
     }
+
+    public void LevelUpTower()
+    {
+        if (IsMaxLevel)
+        {
+            _level++;
+            _levelUpVisual.SetActive(true);
+        }
+    }
     #endregion
+
+
 
 }

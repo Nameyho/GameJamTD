@@ -547,6 +547,8 @@ MonoBehaviour:
   _shootZone2: {fileID: 6793122651806200106}
   _toTurn: {fileID: 4427061807239669930}
   _visualEffect: {fileID: 6038472286175723120}
+  _levelUpVisual: {fileID: 994579199590395427}
+  _audioSource: {fileID: 6835604107862831495}
   _delayShoot: 0
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -556,6 +558,7 @@ MonoBehaviour:
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
   _turretDamage: 40
   _level: 1
+  _maxLevel: 2
   _damageMultiplierByLevel: 1
 --- !u!54 &5446624769166811576
 Rigidbody:
@@ -658,8 +661,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: m_towerUp_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+--- !u!1 &994579199590395427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+  m_PrefabInstance: {fileID: 75467535283049330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1848581923089066772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -774,6 +786,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5446624769166811575}
     m_Modifications:
+    - target: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2532039382331592553, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -880,6 +896,11 @@ GameObject:
 --- !u!4 &8136648396000325798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2532039383545793324, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+  m_PrefabInstance: {fileID: 6037272097306327946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6835604107862831495 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   m_PrefabInstance: {fileID: 6037272097306327946}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &815176609293832434 stripped

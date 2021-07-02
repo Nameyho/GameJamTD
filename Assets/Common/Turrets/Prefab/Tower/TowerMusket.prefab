@@ -51,6 +51,8 @@ MonoBehaviour:
   _shootZone2: {fileID: 0}
   _toTurn: {fileID: 0}
   _visualEffect: {fileID: 0}
+  _levelUpVisual: {fileID: 6006709344823772824}
+  _audioSource: {fileID: 6835604107862831495}
   _delayShoot: 2
   _bulletSpeed: 10
   _bulletLifeSpan: 50
@@ -60,6 +62,7 @@ MonoBehaviour:
   _gold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}
   _turretDamage: 50
   _level: 1
+  _maxLevel: 2
   _damageMultiplierByLevel: 1
 --- !u!54 &5446624769166811576
 Rigidbody:
@@ -145,6 +148,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5446624769166811575}
     m_Modifications:
+    - target: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f1a916a31c215f42a0d99d30375433a, type: 3}
     - target: {fileID: 2252206168427218532, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_Radius
       value: 20
@@ -244,6 +251,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2532039383545793324, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   m_PrefabInstance: {fileID: 6037272097306327946}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &6835604107862831495 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+  m_PrefabInstance: {fileID: 6037272097306327946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &815176609293832434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
@@ -304,5 +316,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: m_towerUp_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+--- !u!1 &6006709344823772824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 22fe05772e8f0614883bce75d028a1b1, type: 3}
+  m_PrefabInstance: {fileID: 6889794409927326665}
+  m_PrefabAsset: {fileID: 0}

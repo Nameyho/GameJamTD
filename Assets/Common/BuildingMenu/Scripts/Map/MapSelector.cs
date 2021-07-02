@@ -21,6 +21,8 @@ public class MapSelector : MonoBehaviour
 
     [SerializeField]
     public GameObject _constructionMenuPanel;
+    [SerializeField]
+    public GameObject _towerMenuPanel;
 
     TileTowerSelector lastcubeSelected = null;
 
@@ -55,6 +57,11 @@ public class MapSelector : MonoBehaviour
                     _constructionMenuPanel.SetActive(true);
                     _constructionMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 10.9f;
                 }
+                else
+                {
+                    _towerMenuPanel.SetActive(true);
+                    _towerMenuPanel.transform.position = lastcubeSelected.transform.position + Vector3.up * 10.9f;
+                }
             }
             //if (!objectHit.CompareTag("Building"))
             //{
@@ -63,13 +70,14 @@ public class MapSelector : MonoBehaviour
         }
         else
         {
-            _constructionMenuPanel.SetActive(false);
+            CloseMenu();
         }
     }
 
     public void CloseMenu()
     {
         _constructionMenuPanel.SetActive(false);
+        _towerMenuPanel.SetActive(false);
         lastcubeSelected = null;
     }
 

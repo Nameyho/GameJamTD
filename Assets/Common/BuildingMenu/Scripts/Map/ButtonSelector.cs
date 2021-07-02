@@ -17,6 +17,7 @@ public class ButtonSelector : MonoBehaviour
     [SerializeField]
     private IntVariable _golds;
 
+    public bool levelUp = false;
 
     [SerializeField]
     private SelectedTile _selectedTitleScriptableObjet;
@@ -26,15 +27,37 @@ public class ButtonSelector : MonoBehaviour
 
     public void OnClick()
     {
-        if (_golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost)
+        if (!_selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt)
         {
-            _selectedTitleScriptableObjet._CurrentSelectedTile.BuildTower(_TowerPrefab);// Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentSelectedTile);
+            if (_golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost)
+            {
+
+                _selectedTitleScriptableObjet._CurrentSelectedTile.BuildTower(_TowerPrefab);// Instantiate(_TowerPrefab, _selectedTitleScriptableObjet._CurrentSelectedTile);
+            }
+        }
+        else if (_golds.Value >= _selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt.goldCost)
+        {
+            _selectedTitleScriptableObjet._CurrentSelectedTile.LevelUpTower();
+        }
+    }
+
+    public void DeleteTower()
+    {
+        if (_selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt)
+        {
+            _selectedTitleScriptableObjet._CurrentSelectedTile.DeleteTower();
         }
     }
 
     private void Update()
     {
-        button.interactable = _golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost;
+        if(_TowerPrefab)
+            button.interactable = _golds.Value >= _TowerPrefab.GetComponent<TowerController>().goldCost;
+
+        if(levelUp && _selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt)
+        {
+            button.interactable = (_golds.Value >= _selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt.goldCost) && (_selectedTitleScriptableObjet._CurrentSelectedTile.towerBuilt.IsMaxLevel);
+        }
 
     }
     #endregion

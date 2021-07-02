@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseHealth: 100
-  _healthMultiplier: 0.75
+  _healthMultiplier: 1.25
   _goldDropAmount: 10
   _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
   _playerGold: {fileID: 11400000, guid: 3db896b9cb3ea0e41a85e50336fb83e9, type: 2}

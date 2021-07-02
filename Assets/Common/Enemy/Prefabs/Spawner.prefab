@@ -81,6 +81,8 @@ MonoBehaviour:
   - {fileID: 5528232703135649734, guid: 5b87145bf82e68a49b1c5b784c9a6a32, type: 3}
   _spawnProbabilities: 0a0000000a0000000a000000
   _bonusProbabilitiesByTurn: 010000000100000001000000
+  _amountOfTinyGuy: 3
+  _percentSquadChance: 7
   _tinyGuyPrefab: {fileID: 8261434478862303139, guid: 9d8440cc14a53dc45afc4d0466b38157, type: 3}
   _turn: {fileID: 11400000, guid: 8353db649ecbec74e8e8210f7079263f, type: 2}
   _nightHasFallen: {fileID: 11400000, guid: 8d3f4b6e0a6a17e4b800e7769423030d, type: 2}

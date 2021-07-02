@@ -17,6 +17,9 @@ public class TowerController : MonoBehaviour
 
     [SerializeField]
     private GameObject _shootZone;
+    
+    [SerializeField]
+    private GameObject _shootZone2;
 
     [SerializeField]
     private Transform _toTurn;
@@ -251,19 +254,26 @@ public class TowerController : MonoBehaviour
                     {
                         // stop lance flamme
                         IsFlameOn = false;
+                        _visualEffect.SendEvent("OnStop");
                         return;
                     }
 
                     for (int i = 0; i < EnemiesList.Count; i++)
                     {
-
+                        foreach (var item in Physics.OverlapCapsule(_shootZone.transform.position, _shootZone2.transform.position, 3))
+                        {
+                            EnemyHealth enemy = item.GetComponent<EnemyHealth>();
+                            if(enemy)
+                                enemy.ReceiveDamages(realdamage * Time.deltaTime);
+                        } 
                         //Debug.Log(EnemiesList[i].name + "reçoit des dégats");
-                        Other.GetComponent<EnemyHealth>().ReceiveDamages(realdamage);
+                        
                     }
                 }
                 else
                 {
                     IsFlameOn = true;
+                    _visualEffect.SendEvent("OnPlay");
 
                 }
 

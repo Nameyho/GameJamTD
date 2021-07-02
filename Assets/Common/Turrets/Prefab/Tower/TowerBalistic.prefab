@@ -79,6 +79,7 @@ MonoBehaviour:
   _towerModel: {fileID: 2532039383545793328, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
   _bulletPrefab: {fileID: 7273155680091094209, guid: 91a3eab369469af4284ac3a6225eb82e, type: 3}
   _shootZone: {fileID: 296149004879122146}
+  _shootZone2: {fileID: 0}
   _toTurn: {fileID: 5530679907697472196}
   _visualEffect: {fileID: 693871572396672202}
   _delayShoot: 3
@@ -261,7 +262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2252206168427218532, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_Radius
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2532039382331592548, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_LocalScale.x
@@ -365,15 +366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6384033010588101496, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7648289127175039302, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_Layer

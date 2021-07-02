@@ -1686,7 +1686,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7466713767177857591}
         m_TargetAssemblyTypeName: ButtonSelector, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DeleteTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

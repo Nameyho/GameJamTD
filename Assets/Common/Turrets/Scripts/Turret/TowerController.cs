@@ -286,6 +286,7 @@ public class TowerController : MonoBehaviour
                         // stop lance flamme
                         IsFlameOn = false;
                         _visualEffect.SendEvent("OnStop");
+                        _audioSource.Stop();
                         return;
                     }
 
@@ -305,6 +306,7 @@ public class TowerController : MonoBehaviour
                 {
                     IsFlameOn = true;
                     _visualEffect.SendEvent("OnPlay");
+                    _audioSource.Play();
 
                 }
 

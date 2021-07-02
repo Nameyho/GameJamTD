@@ -19,6 +19,8 @@ public class TileTowerSelector : MonoBehaviour
     [SerializeField]
     private Material _onExit;
 
+    [SerializeField]
+    private AudioSource _audioSource;
 
     [SerializeField]
     private IntVariable _golds;
@@ -54,6 +56,7 @@ public class TileTowerSelector : MonoBehaviour
     {
         if (towerPrefab && !towerBuilt)
         {
+            _audioSource.Play();
             towerBuilt = Instantiate(towerPrefab, transform).GetComponent<TowerController>();
             OnUnSelection();
             MapSelector.Instance.CloseMenu();
@@ -64,6 +67,7 @@ public class TileTowerSelector : MonoBehaviour
     {
         if (towerBuilt)
         {
+            _audioSource.Play();
             towerBuilt.LevelUpTower();
             MapSelector.Instance.CloseMenu();
         }
@@ -73,6 +77,7 @@ public class TileTowerSelector : MonoBehaviour
     {
         if(towerBuilt)
         {
+            _audioSource.Play();
             _golds.Value += towerBuilt.goldCost;
             Destroy(towerBuilt.gameObject);
             towerBuilt = null;

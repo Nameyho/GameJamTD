@@ -787,6 +787,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 5446624769166811575}
     m_Modifications:
     - target: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3794aed7112b9248ab339fada21ee00, type: 3}
+    - target: {fileID: 942452183076391437, guid: d2a55b9385035444dac7fc60b1f24c6d, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}

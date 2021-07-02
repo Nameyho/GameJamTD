@@ -149,6 +149,7 @@ public class TowerController : MonoBehaviour
             {
                 IsFlameOn = false;
                 _visualEffect.SendEvent("OnStop");
+                _audioSource.Stop();
             }
         }
         //else if (!IsFlameOn)
@@ -281,18 +282,18 @@ public class TowerController : MonoBehaviour
                 if (IsFlameOn)
                 {
 
-                    if (!toAttack)
-                    {
-                        // stop lance flamme
-                        IsFlameOn = false;
-                        _visualEffect.SendEvent("OnStop");
-                        _audioSource.Stop();
-                        return;
-                    }
+                    //if (!toAttack)
+                    //{
+                    //    // stop lance flamme
+                    //    IsFlameOn = false;
+                    //    _visualEffect.SendEvent("OnStop");
+                    //    _audioSource.Stop();
+                    //    return;
+                    //}
 
                     for (int i = 0; i < EnemiesList.Count; i++)
                     {
-                        foreach (var item in Physics.OverlapCapsule(_shootZone.transform.position, _shootZone2.transform.position, 3))
+                        foreach (var item in Physics.OverlapCapsule(_shootZone.transform.position, _shootZone2.transform.position, 2f))
                         {
                             EnemyHealth enemy = item.GetComponent<EnemyHealth>();
                             if(enemy)

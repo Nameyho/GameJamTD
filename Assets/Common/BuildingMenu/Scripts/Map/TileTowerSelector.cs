@@ -60,6 +60,26 @@ public class TileTowerSelector : MonoBehaviour
         }
     }
 
+    public void LevelUpTower()
+    {
+        if (towerBuilt)
+        {
+            towerBuilt.LevelUpTower();
+            MapSelector.Instance.CloseMenu();
+        }
+    }
+
+    public void DeleteTower()
+    {
+        if(towerBuilt)
+        {
+            _golds.Value += towerBuilt.goldCost;
+            Destroy(towerBuilt.gameObject);
+            towerBuilt = null;
+            MapSelector.Instance.CloseMenu();
+        }
+    }
+
     public void OnSelection(){
         if(!towerBuilt)
             rend.material = _onSelected;

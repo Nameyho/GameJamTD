@@ -59,12 +59,17 @@ public class DayNightCycle : MonoBehaviour
 		GUILayout.Label($"Night seconds remaining: {_nightSecondsRemaining.Value}");
 	}
 
-	#endregion
+    private void OnDestroy()
+    {
+		StopAllCoroutines();
+    }
+
+    #endregion
 
 
-	#region Main
+    #region Main
 
-	private IEnumerator DayCycle()
+    private IEnumerator DayCycle()
     {
 		while (true)
         {

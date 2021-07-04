@@ -39,13 +39,13 @@ public class EnemyHealth : MonoBehaviour
         InitHealth();
     }
 
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ReceiveDamages(1000);
-        }
-    }
+    //private void OnMouseOver()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        ReceiveDamages(1000);
+    //    }
+    //}
 
     #endregion
 

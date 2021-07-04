@@ -31,6 +31,11 @@ public class LightTransition : MonoBehaviour
 		DayToNight();
 	}
 
+	private void OnDestroy()
+	{
+		StopAllCoroutines();
+	}
+
 	#endregion
 
 

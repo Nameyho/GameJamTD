@@ -118,7 +118,7 @@ public class TowerController : MonoBehaviour
     {
         for (int i = EnemiesList.Count; i > 0; i--)
         {
-            if (!EnemiesList[i - 1].enabled)
+            if (EnemiesList[i - 1] && !EnemiesList[i - 1].enabled)
             {
                 EnemiesList.RemoveAt(i - 1);
             }

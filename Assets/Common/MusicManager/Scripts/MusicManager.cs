@@ -37,6 +37,13 @@ public class MusicManager : MonoBehaviour
 		PlayMusic(_dayMusics);
 	}
 
+	private void OnDestroy()
+	{
+		_dayHasDawned.RemoveListener(DayMusic);
+		_nightHasFallen.RemoveListener(NightMusic);
+		StopAllCoroutines();
+	}
+
 	#endregion
 
 

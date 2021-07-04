@@ -33,6 +33,8 @@ public class LightTransition : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		_nightHasFallen.RemoveListener(NightToDay);
+		_dayHasDawned.RemoveListener(DayToNight);
 		StopAllCoroutines();
 	}
 

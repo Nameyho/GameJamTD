@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
 	private Vector3Collection _path;
 	[SerializeField]
 	private EnemyWalker[] _enemyPrefabs;
-	[SerializeField, Tooltip("Ordre basé sur la liste des prefabs Enemy")]
+	[SerializeField, Tooltip("Ordre basï¿½ sur la liste des prefabs Enemy")]
 	private int[] _spawnProbabilities = new int[] {};
 	[SerializeField]
 	private int[] _bonusProbabilitiesByTurn = new int[] { };
@@ -66,12 +66,20 @@ public class EnemySpawner : MonoBehaviour
 		_dayHasDawned.AddListener(StopSpawnRoutine);
 	}
 
-    #endregion
+	private void OnDestroy()
+	{
+		_nightHasFallen.RemoveListener(StartSpawnRoutine);
+		_nightHasFallen.RemoveListener(UpdateProbabilityOnNightPassed);
+		_dayHasDawned.RemoveListener(StopSpawnRoutine);
+		StopAllCoroutines();
+	}
+
+	#endregion
 
 
-    #region Main
+	#region Main
 
-    private void SpawnEnemy()
+	private void SpawnEnemy()
 	{
 		float radius = _sphereCollider.radius;
 		float randomPositionX = _transform.position.x + Random.Range(-radius, radius);

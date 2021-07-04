@@ -33,6 +33,13 @@ public class DayNightCycleDisplayer : MonoBehaviour
 		DayToNight();
 	}
 
+	private void OnDestroy()
+	{
+		_nightHasFallen.RemoveListener(NightToDay);
+		_dayHasDawned.RemoveListener(DayToNight);
+		StopAllCoroutines();
+	}
+
 	#endregion
 
 
